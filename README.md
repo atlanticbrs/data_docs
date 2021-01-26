@@ -1,5 +1,5 @@
 # Atlantic BRS data documentation
-This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**BRS DATA CONTACT**) directly.
+This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://bdtc.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**BRS DATA CONTACT**) directly.
 
 For questions or problems with this manual or if you are interested in contributing directly please email **wrc14 [at] duke [dot] edu**.
 

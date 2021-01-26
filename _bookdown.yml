@@ -1,0 +1,6 @@
+book_filename: "AtlanticBRS_data_manual"
+repo: https://github.com/atlanticbrs/data_manual
+output_dir: docs
+rmd_files: ["index.Rmd", "01-cee_metadata.Rmd", "02-tag_metadata.Rmd", "03-sattags.Rmd", "04-dtags.Rmd"]
+new_session: yes
+

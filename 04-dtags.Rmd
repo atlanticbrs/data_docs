@@ -1,0 +1,115 @@
+# DTAGs
+
+
+## Tag Metadata 
+box link: https://duke.app.box.com/folder/124248258732
+See section \@ref(tagmeta) for details.
+
+## Bench testing
+
+This is a section for any information saved from bench tests prior to the tags arriving in the field. This is currently empty.
+
+## Bench test pre-field
+
+This is for tests conducted generally at DUML but before any deployment on a tag to test that the tag is functioning. These tests might include:
+
+1. Salt water switch activation
+2. Hydrophone recording test
+3. Voltage and resistance test of burn
+4. Spin tests of all three axes
+5. VHF test and initial tuning
+
+There should be one directory per tag including at least a DTG and a README explaining tests.
+
+### DTAG calibration datasheet {-}
+
+This is a worksheet / checklist for predeployment tests borrowed for JS and the VA Beach Humpback field effort.
+
+**cols:**
+
+Each column represents a pre-field (or pre-expedition) checklist for a single tag. A new column should be made for each check even if it is the same tag from a previous year.
+
+**rows:**
+
+- **Tag#** this is a short name using in the form D### for the tag
+- **Date** the date of the checklist
+- **Tag ID** this is an actual serial number for the tag and tends to be 8 digits
+- **Frequency** this is the nominal frequency of the tag and should be printed on the tag somewhere.
+- **Tuned frequency** this is the tuned frequency used for testing. Each reciever will have to be individually tuned before deployments.
+- **Problems summary** either ```Ready```, ```pending```, or ```failed```
+- **Visual inspection** a short description of the condition of the tag an ```x``` indicates good overall condition.
+- **D3host connection** any notes on failures for connections or an ```x``` for good consistent connections.
+- **firmawre** the currently installed firmware version
+- **MSP fireware** the currently installed firmware version
+- **Acoustic sampling**
+- **Battery voltage**
+- **LED lights**
+- **SWS**
+- **Configuration** an ```x``` indicates complete
+- **Arm** an ```x``` indicates complete
+- **Triger** an ```x``` indicates complete
+- **VHF Beacon** an ```x``` indicates functioning
+- **Release voltage L+R** Voltage separated by a comma during a burn test.
+- **Programmed release** an ```x``` indicates functioning
+- **Sensor sample rate** in Hz
+- **Flip test** Flipping over each axis. an ```x`` indicates complete and approved (by looking at the resultant data)
+- **Rotation test** rotating around the cardinal directions. an ```x``` indicates complete and approved (by looking at the resultant data)
+- **notes** any additional notes
+- **hydrophone tap test** an ```x``` indicates approved (by listening/inspecting the resultant wav files)
+- **reflective tap** an ```x``` indicates present.
+- **cell phone number** an ```x``` indicates present.
+- **radio frequency tuning** an ```x``` indicates complete.
+- **Float test** ```yes``` or ```no``` and an indication if it was completed in ```fresh``` or ```salt``` water separated by comma.
+- **Cup attachment test** an ```x``` indicates complete and successful.
+- **Cal file** an ```x``` indicates in possession and archived.
+- **Battery voltage** (target: around 3-4.2)**
+- **Thermistor voltage (target: around 1)**
+- **PB+ voltage (around 2.1)**
+- **PB- Voltage (around 0.12)**
+- **Pressure voltage (around 0.1, no spikes)**
+- **External Voltage (if in use)**
+- **Mz voltage (around 1)**
+- **Magnetometer voltage (self-calibration signal in start)**
+- **MB+ Voltage (around 1.05 for Hurst tags)**
+- **MB- voltage (around 0.12)**
+- **Mtst0mV voltage (around 1)**
+- **Mtst3mV voltage (around 0.4)**
+- **Magnetometer preamp gain (around 194)**
+- **MAG CAL (x,y,z) (around 1+/- 0.03)**
+- **MAG CAL residual (2-4%)**
+- **Balance**
+- **ACC CAL (x,y,z) (around 5 and -2.5)**
+- **ACC CAL residual**
+- **Balance**
+- **Author**
+
+## Pre-deploy setup
+
+There are two main items in this directory:
+1. A prep worksheet based on the VA beach field effort courtsey of JS.
+2. A summary of the D3host settings used prior to any DTAG deployment. Currently these are screenshots. These can be transcribed to a metadata sheet in the future, retaining the screenshot as an audit.
+
+### DTAG3 pre worksheet {-}
+
+Currently this is not updated but serves as a checklist of checks prior to any DTAG deployment.
+
+## Calibration files
+
+These are manufacter supplied calibration files neccessary for processing DTAG data. filenames tend to be in the format dx###.xml
+
+### notes {-}
+
+- The ID in dx312 does not match what d3read reports for the physical tag. In the xml: e3232f17, in d3read: 71232222.
+
+## Raw Data (DTGs)
+
+There should be one directory per recovered DTAG. There are two types of directories here:
+
+1. Deployed on animals and the directory name should be in the format [Sp][YY]_[JULIANDAY][a, b, c, ...].
+2. Deployed from a boat to record RLs during a CEE and directory name should be in the format [YYYYMMDD]_CEE_[SOURCE PLATFORM]_RLs.
+
+Within each directory should be the ```\*.dtg``` files as well as a directory ```unpacked``` including ```\*.wav```, ```\*.swv```, and ```\*.xml``` corresponding to each dtg.
+
+### notes {-}
+
+- In Gm17_234a there appears to be a missing DTG #6. There is a #6 ```swv``` and ```xml``` in the unpacked directory but no ```dtg``` or ```wav```. Likely this is after recovery?

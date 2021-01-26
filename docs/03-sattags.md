@@ -1,0 +1,519 @@
+# Satellite tag data
+
+box link https://duke.app.box.com/folder/129173282911
+
+Here are some quick descriptions of the basic satellite tag data that are in this archive. The satellite tag data are somewhat complicated and there is a great deal of additional information which we previously collated in a document called sattag_supplement (a small part of which is reproduced here). If you have a Duke email you can access this document [here](https://wrc14.pages.oit.duke.edu/sattag_supplement/). Otherwise the supplement can be downloaded as html files from https://github.com/atlanticbrs/sattag_supplement.  If you are new to this type of data you should probably also consult that document before proceeding. In addition I (wrc) have collected a variety of R routines I use to parse sattag data files into a package which can be found at https://github.com/williamcioffi/sattagutils and there is a very basic tutorial introduction [here](LINKLINKLINK) and references throughout sattag_supplement.
+
+
+## gonio
+
+These are the raw goniometer logs saved from the hyperterminal mode. These look like CSVs but they are not because the number of columns can vary from row to row. The number of rows is determined whether a platform is favorited in the reciever or not. Some of our platforms (tags) are not favorited due to logistical reasons, or because only 16 favorites can fit in the stored memory of the receiver at any given time. There is more information on the goniometer in sattag_supplement (see above for links).
+
+I've (wrc) written some R scripts to parse these files (https://github.com/williamcioffi/parsegonio) and create a graphic interface for viewing this files live in the field (https://github.com/williamcioffi/monitorgonio).
+
+**rows:**
+
+Each row is a separate ping from a platform recieved by the goniometer.
+
+**cols:**
+
+As noted above there are actualy two sets of fields.
+The first item (before the colon is the computer date time and should not be used). After that there is either a ```$NPRF``` (for favorites) or ```$NPR``` (for non-favorites).
+
+The following explanations are largely transcribed from the [Goniometer User Manual v6.2](https://duke.app.box.com/folder/130377696122)
+Favorites are in the format:
+$NPRF,i,y,m,d,h,mi,s,id,fr,f,ai,l,p,log,lag,dg,le,da
+
+Non-favorites are in the format:
+$NPR,i,y,m,d,h,mi,s,id,fr,f,ai,l,log,lag,dg,le,da
+
+- **i** index of the platforms int he favorite platforms screen
+- **y, m, d, h, mi, s** year, month, day, hour, minutes, seconds. This is GPS time and the one you should use.
+- **id** hexadecimal ID. this should correspond to the **hex** column in [tagdeploy_metadata.xls](LINKLINKLINK).
+- **fr** frequency in Hz.
+- **f** 8 bit validity parameter on Goniometer direction, on GPS (0,0,0,0,0 validity Gonio direction, validity GPS, 0)
+- **ai, am** instantaneous angle and average angle
+- **l** level. This is in relative dB. A value of 1 is also possible and appears to correspond to some sort of invalid value (but this is not explaned in the manual)
+- **p** repetition period
+- **log, lag** latitude and longitude of the Gonio. I have not found an obvious way to get accurate positions from this file type. Instead I've merged the times with the running GPS on the boat (see below).
+- **dg** Gonio direction (not implemented yet)
+- **le, da** message length and data message (in hexadecimal). This message data can be parsed and decoded (one of the functions of [parsegonio](https://github.com/williamcioffi/parsegonio).
+
+### notes {-}
+
+- Favorited exports are not included in this directory.
+
+## sattag gonio gps match
+
+These tables merge the raw goniometer files with the GPS positions of the boats and calculate some simple statistics. The code to generate these data can be found at https://github.com/atlanticbrs/sattag_gonio_gps_match.
+
+### inputs {-}
+- All BRS gonio log files for a given year.
+- BRS gps gpx files for any charter boat and the barber for a given year.
+- 'hexcodes_YYYY.csv' has a key of ptt, deployid, and hex
+
+### more on gpx {-}
+There are always at least 1 but sometimes 2 gpx files saved for a given day of work. One is derrived from the bad elf - ipad connection and the other is from one of a couple of ancient garmin backup gps units. I've just imported them all because they should be pretty close, I made no attempt to get the most accurate.
+
+There have not been more than one charter boat out per day in BRS.
+
+In 2020, we used the R/V Shearwater. All gps data came from the boats system which outputs to a text file format specified in 2020_brs7/00_data/L0_raw_gps/SCS_Header_info.txt.
+
+### outputs {-}
+- 'gonio_gpx_merge_YYYY.csv'
+
+**rows:**
+
+each row is a single hit on the goniometer from either the barber or a charter boat
+
+**cols:**
+
+- **hex** is the code received by the goniometer and matched to 'hexcodes_YYYY.csv'.
+- **date** is a POSIXish styled UTC gps datetime of the reception time for a particular gonio hit.
+- **datenum** date converted into seconds since 1970-01-01
+- **gonio_bearing_deg** the _relative_ bearing of the signal from the goniometer in degrees
+- **gonio_strength_db** the relative strength of the signal as reported by the goniometer log
+- **platform** either barber or charter (for any of the various charter boats we've used)
+- **ptt** the decimal PTT for the recieved tag signal merged in from 'hexcodes_2019.csv'
+- **DeployID** our 'favorite' name for the PTT
+- **lon** the merged in closest in time lon from the gpx gps files
+- **lat** same but for lat
+- **boat_bearing_deg** the initial bearing of the boat in degrees. calculated by simply taking the initial bearing from point n-1 to n from a days gpx. Probably inaccurate at low speeds.
+- **boat_speed_kph** similar to bearing calculation but haversine distance is calculated and divided by ellapsed time between consecutive gps points. kilometers per hour.
+- **gps_gonio_time_difference_s** the time difference in seconds between the goniometer reception time and the matched point on the gps. The vast majority of these are very small. Some are up to 60 seconds.
+
+### notes {-}
+
+- as always check the time difference for sanity. There can also be gaps in the gpx.
+- 20180807_gonio_kahuna.txt was changed to remove 00hrs hits of ZcTag081 before it was deployed.
+- 20180605 charter gpx was mislabeled as barber
+- days with both exocetus and kahuna the gps is likely to have been small boat, but the gonio was always on the big boat.
+- the tiki appears to be missing some GPS data from the 20170518.
+- the bearing is sometimes not accurate on the charter boat goniometer (see below under to do). I'm not sure if strength is impacted in these cases. If it is it is not obvious.
+- specifically the Tiki bearing was not accurate nor was the Fin Galley or Spray
+- The shearwater goniometer failed from 2020714 to 20200716 and there was no directionality during this time.
+
+
+## pass_predictions
+
+These are hour by hour satellite pass predictions.
+
+### notes {-}
+
+- Only 2019 May and 2020 Spring predictions are included here so far. These tend to be fairly consistent year to year, however.
+
+## photos_videos
+
+Photographs and videos of tagging and tag placement. Additional photos for each sightings can be found within [sightings](LINKLINKLINK).
+
+### notes {-}
+
+- This directory is still empty.
+
+## settings {#sattagsettings}
+
+These are settings files for sattelite tag deployments. Two formats are available **htm** which are human readable and **wch** which can be imported/read by various Wildlife Compu ters [utilities](https://wildlifecomputers.com/support/downloads/).
+
+I've written a routine in an R package [sattagutils](https://github.com/williamcioffi/sattagutils) to parse htm files. There is a quick guide [here](LINKLINKLINK).
+
+### Host Settings {-}
+MK10Host version
+: This is the windows software that connects to and programs the tag.
+
+User Name
+: This is the username of the person who generated the configuration report. This might be the person who programmed the tags or might also be generated after the fact by someone else from the wch file.
+
+### Time and Date Settings {-}
+PC Date UTC
+: Date and time of report generation.
+
+Tag Date
+: Date and time on tags clock.
+
+PC UTC offset
+: Time difference from PC local time to UTC.
+
+### General Settings {-}
+Tag's Serial Number
+: This is a identifier of the tag. Not to be confused with the PTT.
+
+Password
+: Mostly this is MK10, occasionally something else. If you can't figure it out for a tag check with the programmer (usually you can figure out who that is from the [**username**](#hostsettings)).
+
+User's Identifier
+: This is a user inputted name for the tag. E.g., "Zc" would be a tag set up to be deployed on a *Ziphius cavirostris*. This will not be the DeployID because it is set before tags are deployed and the DeployID isn't necessarily known beforehand.
+
+Argos Ptt number
+: PTT is the Argos platform terminal transmitter (See Argos user manual section 4.1). In our case this is embedded in a tag.
+
+: The first decimal number is how CLS identifies the tag on their web portal. The second hexadecimal number in parenthesis is what the transmitter actually squawks. This is, for instance, exclusively the number we get from the goniometer. These two numbers could be related in some predictable way to each other, but if they are I can't tell...
+
+: LUT stands for the local user terminal. LUTs download data from satellites and are how we get anything back at all from Argos.
+
+Repetition Intervals
+: This is set to 15s (at-sea) for all tags. This is the interval at which the tag will send another Argos message when dry.
+
+Number of Argos transmissions
+: If the report was generated with a tag actually connected during programming this will be the actual cumulative number of Argos transmissions at that time. This is often in the several hundred range, because wildlife computers will run the tag before delivery and the programmer or others may run the tag for brief periods for the purposes of testing. If the report was generated after the fact from a configuration file and not the actual tag this field will read 0.
+
+Tagware version
+: 
+
+Hardware version
+: 
+
+Battery Configuration
+: A description of the number and type of batteries. This depends on the tag. For example, 2 x M3.
+
+Battery Capacity
+: For example, 1500mAh.
+
+Battery is not classified as dangerous goods
+: This is shipping / export info.
+
+Deploy from Standby on Depth Change
+: This is set to 'no' on our tags.
+
+Owner
+: It looks like this is usually the wildlife computers address for some reason.
+
+Bytes of archive data collected
+: As above, if the real tag is connected this will read how much data has been stored to the onboard memory. If the report is generated form a configuration file this will read 0.
+
+Bytes of histogram and profile data collected
+: As above, if the real tag is connected this will read how much data has been stored to the onboard memory. If the report is generated form a configuration file this will read 0.
+
+### Data to Archive Settings {-}
+
+NOTE: these settings are tricky. Most of them should not matter since we never recover the archive. Status messages pull data directly from the sensors, so should not be dependent on any of these sampling periods. However, Wildlife Computers technical staff has indicated that these settings are used by the tag to determine how to sample for some of our data streams. In particular Depth and wet/dry appear to be important. Apparently there is a hack to get a faster wakeup to the tag by decreasing the sampling period for wet/dry but we have not tested this.^[SPLASH10 tags have a 1/2 second wake up time, while SPOT6 have a 1/4 second wake up. By increasing the sampling rate, we can hack the SPLASH10 to have a 1/4 second wake up at the cost of power. Is this because it is actually logging at that higher sampling rate? I'm not sure.]
+
+Depth
+: 
+
+Internal Temperature
+: 
+
+External Temperature
+: 
+
+Depth Sensor Temperature
+: 
+
+Battery Voltage
+: 
+
+Wet/Dry
+: 
+
+Wet/Dry Threshold
+: Most tags are set to Dry if > 150. The conductivity sensor reports 8 bit resolution. This is an empirical value determined by Cascadia and perhaps others to be effective. Wildlife Computers has an dynamic threshold algorithm, but early tests by Cascadia and others found it to be unsatisfactory. It is possible that algorithm may have been updated to function better now, but since this threshold appears to be working adequately we have not changed it.
+
+Sampling Mode
+: Set to wet or dry.
+
+Automatic Correction of Depth Transducer Drift
+: Set to Using first dry reading on most of our tags. The other option is by most common shallow depth; this is for sharks. This means the pressure transducer is read when the tag becomes dry and can apply a correction if this reading is not 0. Wildlife Computers technical staff indicated that this correction is only applied 1 meter at a time (on 2000m tags) and the correction will only be applied to +/- 40m.
+
+### Data to Transmit Settings {-}
+Histogram Selection
+: All of the histograms have been disabled for the latest BRS tags. Our goal is to get continuous dive record either through the behavior summary data or the series data and so any histogram of dives are not useful. They serve as a reduced representation of the dive record in the case where you wouldn't expect to get continuous records. The dive histograms can of course be calculated from our behavior records. Since we have not been thinking about or using any kind of temperature data we have also left this off.
+
+Histogram Data sampling interval
+: 
+
+Dive Maximum Depth (m)
+: 
+
+Dive Duration
+: 
+
+Time-at-Temperature (C)
+: 
+
+Time-at-Depth (m)
+: 
+
+20-min time-line
+: 
+
+Hourly % time-line (low resolution)
+: 
+
+Hourly % time-line (high resolution)
+: 
+
+Dry/Deep/Neither time-lines
+: 
+
+PAT-style depth-temperature profiles
+: 
+
+Deepest-depth-temperature profiles
+: 
+
+Light-level locations
+: 
+
+### Histogram Collection {-}
+
+Hours of data summarized in each histogram
+: 
+
+Histograms start at GMT
+: 
+
+Do not create new Histogram-style messages if a tag is continuously dry throughout a Histogram collection period
+: 
+
+### Time series messages {-}
+
+Generation of time-series messages
+: 
+
+Time interval between TS samples
+: We selected 5 minute period for our test tags. This was based on average *Z. cavirostris* dive times for shallow and deep dives while minimizing the number of messages per day. Each time series message contains 48 points, so a higher sampling frequency will result in more messages generated per day. The options are 1.25, 2.5, 5, 7.5, and 10 minute sampling periods. Generating 24, 12, 6, 4, and 3 messages per day respectively.
+
+Channels sampled
+: We have set this to just depth for the BRS test series *Z. cavirostris* tags. Can also sample temperature. That would double the amount of data transmitted.
+
+Start with
+: This is an initial number of days to collect time-series data for. We've set this to 14 days for the BRS test series tag configuration. This way it doesn't matter when the tag turns on from that point onward it'll record for 14 days and then duty cycle.^[Note that this is 14 whole days (measured in UTC). So even if a tag is only on for several hours on the first day this counts as one whole day for the purpose of this count.]
+
+then Duty Cycle with
+: We've set this to 0 days off.
+
+and
+: We've set this to 0 days on.
+
+
+### Dive and Timeline Definition {-}
+
+These settings determine what qualifies as a dive.
+
+Depth reading to determine start and end of dive
+: We have been typically setting this to wet or dry. There is a risk that if the conductivity sensor is low or fouled or the weather is high that surfacings will be undersampled. While this determines what is a candidate dives it must also pass the following tresholds to be saved as a dive and put in the buffer for transmit.
+
+Ignore dives shallower than
+: We've set this to be 50 meters for *Z. cavirostris* and 75 meters for *G. macrorhynchus*. The maximum is 75 meters.
+
+Ignore dives shorter than
+: We've set this to be 33 minutes for *Z. cavirostris* and 30 seconds for *G macrorhynchus*.
+
+Depth threshold for timelies
+: 
+
+### Behavior Messages {-}
+
+Generation of behavior messages
+: 
+
+### Stomach Temperature Messages {-}
+
+Generation of stomach temperature messages
+: 
+
+### Haulout Defintion {-}
+
+There is only one field under this heading and the label changes depending on what is set. For cetaceans, you generally do not set this and so it'll read **Tag will never enter haulout state**.
+
+### Transmission Control {-}
+
+Transmit data collected over these last days
+: This is what we call the buffer. This seems simple but it is tricky. The Argos platforms transmit only, they have no idea if a satellite receives anything. In fact they don't even know if a message is corrupted or not (for example, by water splashing the antenna and interrupting a transmission). The tag only knows whether or not a transmit was attempted. Therefore, the buffer allows some storage of messages so they can be transmitted several times over the course of a few days to increase the likelihood that they will get through the satellite.
+
+: If the buffer is too short, then messages will be deleted before they have an opportunity to be transmitted successfully. If we have about 9% satellite coverage off the coast of North Carolina, then a message should have to be sent about 10 times for 1 to go through.
+
+: If the buffer is too long, our probability of new messages being successfully transmitted goes down. In this example, in the beginning of the deployment the queue will be short because the tag hasn't been attached long enough to generate enough messages. So given a constant number of opportunities (the animal brings the tag to the surface) there will be more attempts per message. As the deployment goes on the message queue will get longer and longer and there will be fewer and fewer attempts for each message, especially impacting the latest messages which entered the queue when there were already a lot of messages.
+
+: So the key considerations are: data volume (settings dependent), satellite coverage (location dependent), and transmit opportunities (species and settings dependent). Other crucial settings are the transmit budget , transmit duty cycle and collection duty cycle.
+
+: Cascadia's experience has been that for deep diving cetaceans a **2 day** buffer works well for collecting behavior data and tends to baa lance the above concerns. For our series tag configurations, we used a **100 day** buffer, the maximum, because we were most concerned with successfully receiving all records and adjusted other settings to increase this probability.
+
+### Collection days {-}
+
+January - December
+: Which days to collect data on. For BRS, we have set these to all of the days. This is a way to duty cycle the tag off for specific days.
+
+### Relative transmit Priorities {-}
+
+Histogram, Profiles, Time-lines, Stomach Temperature
+: 
+
+Fastloc and Light-level Locations
+: 
+
+Behavior and Time-Series
+: 
+
+Status
+: Set to every 20 transmissions. I don't think this can be changed?
+
+### When to Transmit Settings {-}
+
+Initially transmit for these hours regardless of settings below
+: We've set this to 24. This comes from Cascadia. I assume the reason is to aid in determining if the tag is working properly and the deployment is OK.
+
+Transmit hours
+: This is based on an analysis of a satellite availability conducted by the tagger. For BRS, we have increased transmit hours to times when there is very poor or no satellite coverage but there is a possibility we will be offshore. We can use the goniometer to track animals as well as capture transmitted messages.
+
+### Transmit Days {-}
+
+January - December
+: Same as above for collection, but for transmission.
+
+### Daily Transmit Allowance {-}
+
+January - December
+: Can only give one number per month which will apply to every day in that month. We've been using **700-750** for *G. macrorhynchus* and **470** for *Z. cavirostris*. In both cases we've set to **not accumulate** and **not optimize for battery life**. These numbers have been tested as effective by Cascadia.
+
+: Some things to consider for transmission number include animal activity patterns, satellite coverage, and battery life. Transmissions use battery, so setting this number very high could lead to early battery drain. In the case of *Z. cavirostris* this is unlikely since they spend little time at the surface they generally do not hit the 470 transmit limit. *G. macrorhynchus* however can spend hours logging at the surface and may go through their entire transmit budget relatively quickly. Making this number smaller helps avoid the situation where the animals are spending a lot of battery life but not sending very informative data (not moving quickly or diving very much). The drawback to making this number small is that it may be used up before good satellite windows during the day.
+
+### Channel Settings {-}
+
+These settings pertain to the sensors and their calibrations.
+
+### Depth {-}
+
+This field also indicates if the tag is extended depth or not by looking in the value of the field under **Range** and **Resolution**.
+
+Correction factors
+: 
+
+Errors
+: 
+
+Compensation factors
+: 
+
+Errors
+: 
+
+
+### Internal Temperature {-}
+
+Correction factors
+: 
+
+Errors
+: 
+
+### External Temperature {-}
+
+Correction factors
+: 
+
+Errors
+: 
+
+### Depth Sensor Temperature {-}
+
+Correction factors
+: 
+
+Errors
+: 
+
+### Battery Voltage {-}
+
+### Wet/Dry {-}
+
+### notes {-}
+
+- 20181205 - It looks like there is something wrong with the configuration file as uploaded to the wildlife portal for GmTag200. The settings don't appear to match with what the tag actually performed.
+
+- We are missing ZcTag089 wch file. The htm file is sufficient for decoding, etc., however.
+
+## tag_datastreams
+
+These are the tag datastreams organized by each sattag deployid. Within each tag directory is up to 4 subdirectories: **douglas, gonio, kalman, portal**.
+
+### douglas (argos-filter) {-}
+
+These are the douglas filtered positions (see [douglas user manual](https://www.usgs.gov/software/douglas-argos-filter-algorithm), [movebank user manual](https://www.movebank.org/cms/movebank-content/argos-data-filters), [douglas filter manuscript](https://doi.org/10.1111/j.2041-210X.2012.00245.x)). If the directory name ends in ```_leastsquares```, then these positions were filtered from the older leastsquares position estimation algorithm. See the [Argos manual](https://www.argos-system.org/manual/) and this CLS [FAQ](https://www.argos-system.org/support-and-help/faq-kalman/) for more details. If this is the case there should also be a **kalman** directory with newly estimated positions. These have not been run through the douglas alogirthm yet.
+
+The file name should identicate whether the source of these data are the original SAS program or the new implementation in movebank. The [movebank](https://www.movebank.org/cms/movebank-main) algorithm *should* produce identical output to the original SAS program^[I am not sure this is strictly true but haven't been able to determine this with certainty). User defined settings shoudl be **maximum rate of movements = 15 kph,  maximum redudant distance = 3km, default rate coefficient for marine mammals = 25, location classes 2 and 3 retained.**
+
+### gonio {-}
+
+These are decoded goniometer recieved messages in the same format as **portal** (see below for details). There is an example of how these data might be combined with the portal data [here](https://bdtc.netlify.app/2021/01/14/intgon/) using [sattagutils](https://github.com/williamcioffi/sattagutils).
+
+### portal {-}
+
+This is the majority of satallite tag data. We receive this data via the Wildlife Computers data portal. Before proceeding with this data you should review the [file descriptors](https://static.wildlifecomputers.com/Spreadsheet-File-Descriptions-3.pdf) as well as any other applicable [manuals from Wildlife Computers](https://wildlifecomputers.com/support/downloads/).
+
+There is a brief tutorial on importing these datastreams using sattagutils [here](https://bdtc.netlify.app/2021/01/14/sattagutilsquick/).
+
+Since Wildlife Computers has documentation linked above, I will just stress here some important points that are either difficult to understand or not well documented. In addition, I've pointed out where some of the csv files for the data streams are not well formatted and so they may cause problems if you are trying to ingest them into your database. This was the main motivation for writing sattagutils.
+
+### Date formats {-}
+- %m/%d/%Y %H:%M:%S
+    - \*-All.csv: **Loc. date**, **Msg Date**
+- %H:%M:%S %d-%b-%Y
+    - \*-Behavior.csv: **Start**, **End**
+    - \*-Corrupt.csv: **Date**, **Possible.Timestamp**
+    - \*-SeriesRange.csv: **Start**, **End**
+    - \*-Status.csv: **Received**, **RTC**
+    - \*-Summary.csv^[I've never seen **ReleaseDate** and **DeployDate** so I'm not sure if they are implemented in the same way or not.]: **EarliestXmitTime**, **LatestXmitTime**, **EarliestDataTime**, **LatestDataTime** 
+- Time (%H:%M:%S) and date (%d-%b-%Y) in separate fields
+    - \*-FastGPS.csv: **Time**, **Day**
+    - \*-RTC.csv: **TagTime**, **RealTime**; **TagDate**, **RealDate** 
+    - \*-RawArgos.csv: **PassTime**, **MsgTime**; **PassDate**, **MsgDate**
+    - \*-Series.csv: **Time**, **Day**
+
+### Malformed  {-}
+
+There are minor things to watch out for in all of the data streams including inconsistent capitalization schemes and field names with lots of whitespace and other odd characters.
+
+A couple streams in particular are saved by default into files with the csv extension, but they aren't proper csvs.
+
+**\*-RawArgos.csv**
+
+This stream always has 4 lines extra lines at the bottom which aren't part of a csv. 2 blank lines are followed by 2 line (1 header) table with PTT, Diags, Passes, and Msgs. If you're trying to load this file into R as a csv you'll get an error.
+
+**\*-FastGPS.csv**
+
+This stream has 3 blank extra lines before the header at the beginning. Again you can't load this file straight into R as a csv without an error.You also often get multiple versions of \*-FastGPS.csv in a directory downloaded from the portal.
+
+Instead of **DeployID** and **Ptt** this stream uses **Name**. I believe it defaults to **DeployID** unless none is present in which case it displays **Ptt**. This is the general behavior of **DeployID** as far as I know actually.
+
+In addition if decoding with DAP / Argos Message Decoder and there are multiple tags in a PRV file, each new tag will include the 3 blank lines and header in the middle of the csv.
+
+**\*-Labels.csv**
+
+There is something wrong with this file. I think it be missing an EOF or something? It is also a tall table instead of a wide table (like every other stream).
+
+### Field details {-}
+
+**\*-Behavior.csv**
+
+Start / End
+: These times are actually a little confusing. To understand them, recall that blocks of summary information about 'dives' and 'surface' behavior events are collated into a single 'message' for uplink to Argos satellites. The start and end times are not actually recorded on a clock for any of these behavior events. Instead something like a running count of seconds since the start of the message block (which is a clock time) is uplinked and then everything is converted back to clock time for the csv file output. I think this is a method to save space and make the messages smaller since Argos bandwidth is limited. This would all be fine, however, the start time of the message is recorded without seconds ^[I think they are rounded, but it is a little hard to tell.]. 
+
+: This is a big deal. The start time of a message is only recorded to minute accuracy. All events within a message block are recorded to second accuracy (in number of seconds since the start of message) but the clock times reported in the behavior csv are off by an unknown and variable amount of seconds. This is troublesome if you are looking at coordinated behavior among multiple animals. It can also lead to overlapping times when a new behavior event starts (at the beginning of a message block) before the previous one ends (at the end of the preceding message block) ^[Another case of overlapping message blocks occured from a corrupt message which apparently wasn't caught by the decoding software. This produced one extremely long message which overlapped with many others in time. We also sent some overlapping *G. macrorhynchus* behavior records to Wildlife Computers but have not heard back. I am not sure if these were just the result of clock inaccuracy or not.].
+
+DepthMax / DepthMin
+: These are confusing because they both actually refer to an estimate of the maximum depth on a dive. The tag is actually sampling at some rate specified in the settings (we've been using 1 second) and using that data to generate the summary information about dives that ends up in the behavior stream. The sampled value for the maximum depth on a dive is encoded for upload to satellite and in that process some resolution is lost. So $DepthMax - DepthMin$ is the error band for the real maximum depth. Note that this is just error in the sense of resolution of the data encoding, it doesn't actually have anything to do with the measurement error in the pressure transducer.
+
+DurationMax / DurationMin
+: I do not know how these are generated.
+
+**\*-Series.csv**
+
+Depth
+: the depths are heavily binned in series data. 16 bins are created on the tag based on the overall min/max depth of that message. Then what is transmitted to the satellite is the min/max depth (with some error) and the bin numbers instead of actual depth values. This is simple because the bandwidth is so limited. Therefore the depth bins are recreated on the server with some error as noted. **This is a big deal and will need to be carefully considered before any analyses on depth.**
+
+DRange
+: the +/- error on the series depth ^[I assume **TRange** is the same but do not know for sure.]. This is confusing because it is called DRange which I assume stands for depth range and the text in the docs is ambiguous ^[See page 22 of [Spreadsheet-File-Descriptions.pdf](https://wildlifecomputers.com/support/downloads/)]. So to calculate the actual error band it would be $2 \cdot DRange$. This is error in the sense of resolution of the data encoding, it doesn't actually have anything to do with measurement error in the pressure transducer. [Here](examples/drange.html) is an interactive plot of a large number of depths, dranges, and maximum depths.
+
+
+**\*-Status.csv**
+
+Note an important difference between the standard and extended depth pressure transducer configurations on SPLASH10 tags. The standard tags have a 0.5 meter resolution and report **Zero Depth Offset** in counts, so 30 counts is actually 15 meters. This is processed out in the \*-Behavior.csv depth fields as well as the **Depth** field in the \*-Status.csv.
+
+Zero Depth Offset
+: is applied only 1 (count / meter?) at a time and only goes up to +/- 40 (count / meter?). At drifts greater than this, no offset is applied (and so if you were just looking at offset it would look like everything is normal with the transducer.
+
+Type
+:  indicates whether a status message has passed a CRC (cyclic redundancy check; an error checking mechanism). If the value in this column is 'CRC' then the message did in fact pass the CRC. If the value is blank then there was no CRC, but the message is not necessarily corrupt. If a message fails CRC it is actually put in the \*-Corrupt.csv stream. Probably the most common reason for this is the transmission was interrupted by water splashing on the antenna (or the animal submerging). Note also that messages which pass CRC can still be corrupted in different ways.
+
+: Between 2016 and 2017 an error was corrected which was causing too few status messages to come through. For example, prior to 2017, number of transmits never came through on a CRC message only on messages with a blank value in the type field. It is still true that the frequency different fields in status are populated varies from field to field.

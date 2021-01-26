@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Satellite tag data | Atlantic BRS data docs</title>
+  <meta name="description" content="companion to the atlantic brs data portal" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Satellite tag data | Atlantic BRS data docs" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://atlanticbrs.github.com/data_docs" />
+  
+  <meta property="og:description" content="companion to the atlantic brs data portal" />
+  <meta name="github-repo" content="atlanticbrs/data_manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Satellite tag data | Atlantic BRS data docs" />
+  
+  <meta name="twitter:description" content="companion to the atlantic brs data portal" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tagmeta.html"/>
+<link rel="next" href="dtags.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">AtlanticBRS data manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#this-is-a-draft-contributions-welcome"><i class="fa fa-check"></i>This is a draft; contributions welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="cee-metadata.html"><a href="cee-metadata.html"><i class="fa fa-check"></i><b>1</b> CEE metadata</a><ul>
+<li class="chapter" data-level="1.1" data-path="cee-metadata.html"><a href="cee-metadata.html#cee_metadata_flat.csv"><i class="fa fa-check"></i><b>1.1</b> cee_metadata_flat.csv</a><ul>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#notes"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="cee-metadata.html"><a href="cee-metadata.html#atlantic-brs_ee-metadata.xlsx"><i class="fa fa-check"></i><b>1.2</b> ATLANTIC-BRS_EE Metadata.xlsx</a><ul>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#tabs-1-7"><i class="fa fa-check"></i>Tabs 1-7</a></li>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#tab-8"><i class="fa fa-check"></i>Tab 8</a></li>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#notes-1"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="cee-metadata.html"><a href="cee-metadata.html#summary-subdirectories"><i class="fa fa-check"></i><b>1.3</b> Summary subdirectories</a><ul>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#notes-2"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tagmeta.html"><a href="tagmeta.html"><i class="fa fa-check"></i><b>2</b> Tag Metadata</a><ul>
+<li class="chapter" data-level="2.1" data-path="tagmeta.html"><a href="tagmeta.html#tagdeploy_metadata.xls"><i class="fa fa-check"></i><b>2.1</b> tagdeploy_metadata.xls</a><ul>
+<li class="chapter" data-level="" data-path="tagmeta.html"><a href="tagmeta.html#notes-3"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="tagmeta.html"><a href="tagmeta.html#tagged_animal_morphometrics.csv-not-implemented-yet"><i class="fa fa-check"></i><b>2.2</b> tagged_animal_morphometrics.csv (!not implemented yet)</a><ul>
+<li class="chapter" data-level="" data-path="tagmeta.html"><a href="tagmeta.html#notes-4"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="tagmeta.html"><a href="tagmeta.html#atn_tag_deployment_metadata.csv"><i class="fa fa-check"></i><b>2.3</b> atn_tag_deployment_metadata.csv</a><ul>
+<li class="chapter" data-level="" data-path="tagmeta.html"><a href="tagmeta.html#notes-5"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html"><i class="fa fa-check"></i><b>3</b> Satellite tag data</a><ul>
+<li class="chapter" data-level="3.1" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#gonio"><i class="fa fa-check"></i><b>3.1</b> gonio</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-6"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#sattag-gonio-gps-match"><i class="fa fa-check"></i><b>3.2</b> sattag gonio gps match</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#inputs"><i class="fa fa-check"></i>inputs</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#more-on-gpx"><i class="fa fa-check"></i>more on gpx</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#outputs"><i class="fa fa-check"></i>outputs</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-7"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#pass_predictions"><i class="fa fa-check"></i><b>3.3</b> pass_predictions</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-8"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#photos_videos"><i class="fa fa-check"></i><b>3.4</b> photos_videos</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-9"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#sattagsettings"><i class="fa fa-check"></i><b>3.5</b> settings</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#host-settings"><i class="fa fa-check"></i>Host Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#time-and-date-settings"><i class="fa fa-check"></i>Time and Date Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#general-settings"><i class="fa fa-check"></i>General Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#data-to-archive-settings"><i class="fa fa-check"></i>Data to Archive Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#data-to-transmit-settings"><i class="fa fa-check"></i>Data to Transmit Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#histogram-collection"><i class="fa fa-check"></i>Histogram Collection</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#time-series-messages"><i class="fa fa-check"></i>Time series messages</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#dive-and-timeline-definition"><i class="fa fa-check"></i>Dive and Timeline Definition</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#behavior-messages"><i class="fa fa-check"></i>Behavior Messages</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#stomach-temperature-messages"><i class="fa fa-check"></i>Stomach Temperature Messages</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#haulout-defintion"><i class="fa fa-check"></i>Haulout Defintion</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#transmission-control"><i class="fa fa-check"></i>Transmission Control</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#collection-days"><i class="fa fa-check"></i>Collection days</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#relative-transmit-priorities"><i class="fa fa-check"></i>Relative transmit Priorities</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#when-to-transmit-settings"><i class="fa fa-check"></i>When to Transmit Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#transmit-days"><i class="fa fa-check"></i>Transmit Days</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#daily-transmit-allowance"><i class="fa fa-check"></i>Daily Transmit Allowance</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#channel-settings"><i class="fa fa-check"></i>Channel Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#depth"><i class="fa fa-check"></i>Depth</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#internal-temperature"><i class="fa fa-check"></i>Internal Temperature</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#external-temperature"><i class="fa fa-check"></i>External Temperature</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#depth-sensor-temperature"><i class="fa fa-check"></i>Depth Sensor Temperature</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#battery-voltage"><i class="fa fa-check"></i>Battery Voltage</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#wetdry"><i class="fa fa-check"></i>Wet/Dry</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-10"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#tag_datastreams"><i class="fa fa-check"></i><b>3.6</b> tag_datastreams</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#douglas-argos-filter"><i class="fa fa-check"></i>douglas (argos-filter)</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#gonio-1"><i class="fa fa-check"></i>gonio</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#portal"><i class="fa fa-check"></i>portal</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#date-formats"><i class="fa fa-check"></i>Date formats</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#malformed"><i class="fa fa-check"></i>Malformed</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#field-details"><i class="fa fa-check"></i>Field details</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dtags.html"><a href="dtags.html"><i class="fa fa-check"></i><b>4</b> DTAGs</a><ul>
+<li class="chapter" data-level="4.1" data-path="dtags.html"><a href="dtags.html#tag-metadata"><i class="fa fa-check"></i><b>4.1</b> Tag Metadata</a></li>
+<li class="chapter" data-level="4.2" data-path="dtags.html"><a href="dtags.html#bench-testing"><i class="fa fa-check"></i><b>4.2</b> Bench testing</a></li>
+<li class="chapter" data-level="4.3" data-path="dtags.html"><a href="dtags.html#bench-test-pre-field"><i class="fa fa-check"></i><b>4.3</b> Bench test pre-field</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#dtag-calibration-datasheet"><i class="fa fa-check"></i>DTAG calibration datasheet</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dtags.html"><a href="dtags.html#pre-deploy-setup"><i class="fa fa-check"></i><b>4.4</b> Pre-deploy setup</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#dtag3-pre-worksheet"><i class="fa fa-check"></i>DTAG3 pre worksheet</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dtags.html"><a href="dtags.html#calibration-files"><i class="fa fa-check"></i><b>4.5</b> Calibration files</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-11"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dtags.html"><a href="dtags.html#raw-data-dtgs"><i class="fa fa-check"></i><b>4.6</b> Raw Data (DTGs)</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-12"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Atlantic BRS data docs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="satellite-tag-data" class="section level1">
+<h1><span class="header-section-number">3</span> Satellite tag data</h1>
+<p>box link <a href="https://duke.app.box.com/folder/129173282911" class="uri">https://duke.app.box.com/folder/129173282911</a></p>
+<p>Here are some quick descriptions of the basic satellite tag data that are in this archive. The satellite tag data are somewhat complicated and there is a great deal of additional information which we previously collated in a document called sattag_supplement (a small part of which is reproduced here). If you have a Duke email you can access this document <a href="https://wrc14.pages.oit.duke.edu/sattag_supplement/">here</a>. Otherwise the supplement can be downloaded as html files from <a href="https://github.com/atlanticbrs/sattag_supplement" class="uri">https://github.com/atlanticbrs/sattag_supplement</a>. If you are new to this type of data you should probably also consult that document before proceeding. In addition I (wrc) have collected a variety of R routines I use to parse sattag data files into a package which can be found at <a href="https://github.com/williamcioffi/sattagutils" class="uri">https://github.com/williamcioffi/sattagutils</a> and there is a very basic tutorial introduction <a href="LINKLINKLINK">here</a> and references throughout sattag_supplement.</p>
+<div id="gonio" class="section level2">
+<h2><span class="header-section-number">3.1</span> gonio</h2>
+<p>These are the raw goniometer logs saved from the hyperterminal mode. These look like CSVs but they are not because the number of columns can vary from row to row. The number of rows is determined whether a platform is favorited in the reciever or not. Some of our platforms (tags) are not favorited due to logistical reasons, or because only 16 favorites can fit in the stored memory of the receiver at any given time. There is more information on the goniometer in sattag_supplement (see above for links).</p>
+<p>I’ve (wrc) written some R scripts to parse these files (<a href="https://github.com/williamcioffi/parsegonio" class="uri">https://github.com/williamcioffi/parsegonio</a>) and create a graphic interface for viewing this files live in the field (<a href="https://github.com/williamcioffi/monitorgonio" class="uri">https://github.com/williamcioffi/monitorgonio</a>).</p>
+<p><strong>rows:</strong></p>
+<p>Each row is a separate ping from a platform recieved by the goniometer.</p>
+<p><strong>cols:</strong></p>
+<p>As noted above there are actualy two sets of fields.
+The first item (before the colon is the computer date time and should not be used). After that there is either a <code>$NPRF</code> (for favorites) or <code>$NPR</code> (for non-favorites).</p>
+<p>The following explanations are largely transcribed from the <a href="https://duke.app.box.com/folder/130377696122">Goniometer User Manual v6.2</a>
+Favorites are in the format:
+$NPRF,i,y,m,d,h,mi,s,id,fr,f,ai,l,p,log,lag,dg,le,da</p>
+<p>Non-favorites are in the format:
+$NPR,i,y,m,d,h,mi,s,id,fr,f,ai,l,log,lag,dg,le,da</p>
+<ul>
+<li><strong>i</strong> index of the platforms int he favorite platforms screen</li>
+<li><strong>y, m, d, h, mi, s</strong> year, month, day, hour, minutes, seconds. This is GPS time and the one you should use.</li>
+<li><strong>id</strong> hexadecimal ID. this should correspond to the <strong>hex</strong> column in <a href="LINKLINKLINK">tagdeploy_metadata.xls</a>.</li>
+<li><strong>fr</strong> frequency in Hz.</li>
+<li><strong>f</strong> 8 bit validity parameter on Goniometer direction, on GPS (0,0,0,0,0 validity Gonio direction, validity GPS, 0)</li>
+<li><strong>ai, am</strong> instantaneous angle and average angle</li>
+<li><strong>l</strong> level. This is in relative dB. A value of 1 is also possible and appears to correspond to some sort of invalid value (but this is not explaned in the manual)</li>
+<li><strong>p</strong> repetition period</li>
+<li><strong>log, lag</strong> latitude and longitude of the Gonio. I have not found an obvious way to get accurate positions from this file type. Instead I’ve merged the times with the running GPS on the boat (see below).</li>
+<li><strong>dg</strong> Gonio direction (not implemented yet)</li>
+<li><strong>le, da</strong> message length and data message (in hexadecimal). This message data can be parsed and decoded (one of the functions of <a href="https://github.com/williamcioffi/parsegonio">parsegonio</a>.</li>
+</ul>
+<div id="notes-6" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li>Favorited exports are not included in this directory.</li>
+</ul>
+</div>
+</div>
+<div id="sattag-gonio-gps-match" class="section level2">
+<h2><span class="header-section-number">3.2</span> sattag gonio gps match</h2>
+<p>These tables merge the raw goniometer files with the GPS positions of the boats and calculate some simple statistics. The code to generate these data can be found at <a href="https://github.com/atlanticbrs/sattag_gonio_gps_match" class="uri">https://github.com/atlanticbrs/sattag_gonio_gps_match</a>.</p>
+<div id="inputs" class="section level3 unnumbered">
+<h3>inputs</h3>
+<ul>
+<li>All BRS gonio log files for a given year.</li>
+<li>BRS gps gpx files for any charter boat and the barber for a given year.</li>
+<li>‘hexcodes_YYYY.csv’ has a key of ptt, deployid, and hex</li>
+</ul>
+</div>
+<div id="more-on-gpx" class="section level3 unnumbered">
+<h3>more on gpx</h3>
+<p>There are always at least 1 but sometimes 2 gpx files saved for a given day of work. One is derrived from the bad elf - ipad connection and the other is from one of a couple of ancient garmin backup gps units. I’ve just imported them all because they should be pretty close, I made no attempt to get the most accurate.</p>
+<p>There have not been more than one charter boat out per day in BRS.</p>
+<p>In 2020, we used the R/V Shearwater. All gps data came from the boats system which outputs to a text file format specified in 2020_brs7/00_data/L0_raw_gps/SCS_Header_info.txt.</p>
+</div>
+<div id="outputs" class="section level3 unnumbered">
+<h3>outputs</h3>
+<ul>
+<li>‘gonio_gpx_merge_YYYY.csv’</li>
+</ul>
+<p><strong>rows:</strong></p>
+<p>each row is a single hit on the goniometer from either the barber or a charter boat</p>
+<p><strong>cols:</strong></p>
+<ul>
+<li><strong>hex</strong> is the code received by the goniometer and matched to ‘hexcodes_YYYY.csv’.</li>
+<li><strong>date</strong> is a POSIXish styled UTC gps datetime of the reception time for a particular gonio hit.</li>
+<li><strong>datenum</strong> date converted into seconds since 1970-01-01</li>
+<li><strong>gonio_bearing_deg</strong> the <em>relative</em> bearing of the signal from the goniometer in degrees</li>
+<li><strong>gonio_strength_db</strong> the relative strength of the signal as reported by the goniometer log</li>
+<li><strong>platform</strong> either barber or charter (for any of the various charter boats we’ve used)</li>
+<li><strong>ptt</strong> the decimal PTT for the recieved tag signal merged in from ‘hexcodes_2019.csv’</li>
+<li><strong>DeployID</strong> our ‘favorite’ name for the PTT</li>
+<li><strong>lon</strong> the merged in closest in time lon from the gpx gps files</li>
+<li><strong>lat</strong> same but for lat</li>
+<li><strong>boat_bearing_deg</strong> the initial bearing of the boat in degrees. calculated by simply taking the initial bearing from point n-1 to n from a days gpx. Probably inaccurate at low speeds.</li>
+<li><strong>boat_speed_kph</strong> similar to bearing calculation but haversine distance is calculated and divided by ellapsed time between consecutive gps points. kilometers per hour.</li>
+<li><strong>gps_gonio_time_difference_s</strong> the time difference in seconds between the goniometer reception time and the matched point on the gps. The vast majority of these are very small. Some are up to 60 seconds.</li>
+</ul>
+</div>
+<div id="notes-7" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li>as always check the time difference for sanity. There can also be gaps in the gpx.</li>
+<li>20180807_gonio_kahuna.txt was changed to remove 00hrs hits of ZcTag081 before it was deployed.</li>
+<li>20180605 charter gpx was mislabeled as barber</li>
+<li>days with both exocetus and kahuna the gps is likely to have been small boat, but the gonio was always on the big boat.</li>
+<li>the tiki appears to be missing some GPS data from the 20170518.</li>
+<li>the bearing is sometimes not accurate on the charter boat goniometer (see below under to do). I’m not sure if strength is impacted in these cases. If it is it is not obvious.</li>
+<li>specifically the Tiki bearing was not accurate nor was the Fin Galley or Spray</li>
+<li>The shearwater goniometer failed from 2020714 to 20200716 and there was no directionality during this time.</li>
+</ul>
+</div>
+</div>
+<div id="pass_predictions" class="section level2">
+<h2><span class="header-section-number">3.3</span> pass_predictions</h2>
+<p>These are hour by hour satellite pass predictions.</p>
+<div id="notes-8" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li>Only 2019 May and 2020 Spring predictions are included here so far. These tend to be fairly consistent year to year, however.</li>
+</ul>
+</div>
+</div>
+<div id="photos_videos" class="section level2">
+<h2><span class="header-section-number">3.4</span> photos_videos</h2>
+<p>Photographs and videos of tagging and tag placement. Additional photos for each sightings can be found within <a href="LINKLINKLINK">sightings</a>.</p>
+<div id="notes-9" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li>This directory is still empty.</li>
+</ul>
+</div>
+</div>
+<div id="sattagsettings" class="section level2">
+<h2><span class="header-section-number">3.5</span> settings</h2>
+<p>These are settings files for sattelite tag deployments. Two formats are available <strong>htm</strong> which are human readable and <strong>wch</strong> which can be imported/read by various Wildlife Compu ters <a href="https://wildlifecomputers.com/support/downloads/">utilities</a>.</p>
+<p>I’ve written a routine in an R package <a href="https://github.com/williamcioffi/sattagutils">sattagutils</a> to parse htm files. There is a quick guide <a href="LINKLINKLINK">here</a>.</p>
+<div id="host-settings" class="section level3 unnumbered">
+<h3>Host Settings</h3>
+<dl>
+<dt>MK10Host version</dt>
+<dd>This is the windows software that connects to and programs the tag.
+</dd>
+<dt>User Name</dt>
+<dd>This is the username of the person who generated the configuration report. This might be the person who programmed the tags or might also be generated after the fact by someone else from the wch file.
+</dd>
+</dl>
+</div>
+<div id="time-and-date-settings" class="section level3 unnumbered">
+<h3>Time and Date Settings</h3>
+<dl>
+<dt>PC Date UTC</dt>
+<dd>Date and time of report generation.
+</dd>
+<dt>Tag Date</dt>
+<dd>Date and time on tags clock.
+</dd>
+<dt>PC UTC offset</dt>
+<dd>Time difference from PC local time to UTC.
+</dd>
+</dl>
+</div>
+<div id="general-settings" class="section level3 unnumbered">
+<h3>General Settings</h3>
+<dl>
+<dt>Tag’s Serial Number</dt>
+<dd>This is a identifier of the tag. Not to be confused with the PTT.
+</dd>
+<dt>Password</dt>
+<dd>Mostly this is MK10, occasionally something else. If you can’t figure it out for a tag check with the programmer (usually you can figure out who that is from the <a href="#hostsettings"><strong>username</strong></a>).
+</dd>
+<dt>User’s Identifier</dt>
+<dd>This is a user inputted name for the tag. E.g., “Zc” would be a tag set up to be deployed on a <em>Ziphius cavirostris</em>. This will not be the DeployID because it is set before tags are deployed and the DeployID isn’t necessarily known beforehand.
+</dd>
+<dt>Argos Ptt number</dt>
+<dd>PTT is the Argos platform terminal transmitter (See Argos user manual section 4.1). In our case this is embedded in a tag.
+</dd>
+<dd><p>The first decimal number is how CLS identifies the tag on their web portal. The second hexadecimal number in parenthesis is what the transmitter actually squawks. This is, for instance, exclusively the number we get from the goniometer. These two numbers could be related in some predictable way to each other, but if they are I can’t tell…</p>
+</dd>
+<dd><p>LUT stands for the local user terminal. LUTs download data from satellites and are how we get anything back at all from Argos.</p>
+</dd>
+<dt>Repetition Intervals</dt>
+<dd>This is set to 15s (at-sea) for all tags. This is the interval at which the tag will send another Argos message when dry.
+</dd>
+<dt>Number of Argos transmissions</dt>
+<dd>If the report was generated with a tag actually connected during programming this will be the actual cumulative number of Argos transmissions at that time. This is often in the several hundred range, because wildlife computers will run the tag before delivery and the programmer or others may run the tag for brief periods for the purposes of testing. If the report was generated after the fact from a configuration file and not the actual tag this field will read 0.
+</dd>
+<dt>Tagware version</dt>
+<dd>
+</dd>
+<dt>Hardware version</dt>
+<dd>
+</dd>
+<dt>Battery Configuration</dt>
+<dd>A description of the number and type of batteries. This depends on the tag. For example, 2 x M3.
+</dd>
+<dt>Battery Capacity</dt>
+<dd>For example, 1500mAh.
+</dd>
+<dt>Battery is not classified as dangerous goods</dt>
+<dd>This is shipping / export info.
+</dd>
+<dt>Deploy from Standby on Depth Change</dt>
+<dd>This is set to ‘no’ on our tags.
+</dd>
+<dt>Owner</dt>
+<dd>It looks like this is usually the wildlife computers address for some reason.
+</dd>
+<dt>Bytes of archive data collected</dt>
+<dd>As above, if the real tag is connected this will read how much data has been stored to the onboard memory. If the report is generated form a configuration file this will read 0.
+</dd>
+<dt>Bytes of histogram and profile data collected</dt>
+<dd>As above, if the real tag is connected this will read how much data has been stored to the onboard memory. If the report is generated form a configuration file this will read 0.
+</dd>
+</dl>
+</div>
+<div id="data-to-archive-settings" class="section level3 unnumbered">
+<h3>Data to Archive Settings</h3>
+<p>NOTE: these settings are tricky. Most of them should not matter since we never recover the archive. Status messages pull data directly from the sensors, so should not be dependent on any of these sampling periods. However, Wildlife Computers technical staff has indicated that these settings are used by the tag to determine how to sample for some of our data streams. In particular Depth and wet/dry appear to be important. Apparently there is a hack to get a faster wakeup to the tag by decreasing the sampling period for wet/dry but we have not tested this.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<dl>
+<dt>Depth</dt>
+<dd>
+</dd>
+<dt>Internal Temperature</dt>
+<dd>
+</dd>
+<dt>External Temperature</dt>
+<dd>
+</dd>
+<dt>Depth Sensor Temperature</dt>
+<dd>
+</dd>
+<dt>Battery Voltage</dt>
+<dd>
+</dd>
+<dt>Wet/Dry</dt>
+<dd>
+</dd>
+<dt>Wet/Dry Threshold</dt>
+<dd>Most tags are set to Dry if &gt; 150. The conductivity sensor reports 8 bit resolution. This is an empirical value determined by Cascadia and perhaps others to be effective. Wildlife Computers has an dynamic threshold algorithm, but early tests by Cascadia and others found it to be unsatisfactory. It is possible that algorithm may have been updated to function better now, but since this threshold appears to be working adequately we have not changed it.
+</dd>
+<dt>Sampling Mode</dt>
+<dd>Set to wet or dry.
+</dd>
+<dt>Automatic Correction of Depth Transducer Drift</dt>
+<dd>Set to Using first dry reading on most of our tags. The other option is by most common shallow depth; this is for sharks. This means the pressure transducer is read when the tag becomes dry and can apply a correction if this reading is not 0. Wildlife Computers technical staff indicated that this correction is only applied 1 meter at a time (on 2000m tags) and the correction will only be applied to +/- 40m.
+</dd>
+</dl>
+</div>
+<div id="data-to-transmit-settings" class="section level3 unnumbered">
+<h3>Data to Transmit Settings</h3>
+<dl>
+<dt>Histogram Selection</dt>
+<dd>All of the histograms have been disabled for the latest BRS tags. Our goal is to get continuous dive record either through the behavior summary data or the series data and so any histogram of dives are not useful. They serve as a reduced representation of the dive record in the case where you wouldn’t expect to get continuous records. The dive histograms can of course be calculated from our behavior records. Since we have not been thinking about or using any kind of temperature data we have also left this off.
+</dd>
+<dt>Histogram Data sampling interval</dt>
+<dd>
+</dd>
+<dt>Dive Maximum Depth (m)</dt>
+<dd>
+</dd>
+<dt>Dive Duration</dt>
+<dd>
+</dd>
+<dt>Time-at-Temperature (C)</dt>
+<dd>
+</dd>
+<dt>Time-at-Depth (m)</dt>
+<dd>
+</dd>
+<dt>20-min time-line</dt>
+<dd>
+</dd>
+<dt>Hourly % time-line (low resolution)</dt>
+<dd>
+</dd>
+<dt>Hourly % time-line (high resolution)</dt>
+<dd>
+</dd>
+<dt>Dry/Deep/Neither time-lines</dt>
+<dd>
+</dd>
+<dt>PAT-style depth-temperature profiles</dt>
+<dd>
+</dd>
+<dt>Deepest-depth-temperature profiles</dt>
+<dd>
+</dd>
+<dt>Light-level locations</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="histogram-collection" class="section level3 unnumbered">
+<h3>Histogram Collection</h3>
+<dl>
+<dt>Hours of data summarized in each histogram</dt>
+<dd>
+</dd>
+<dt>Histograms start at GMT</dt>
+<dd>
+</dd>
+<dt>Do not create new Histogram-style messages if a tag is continuously dry throughout a Histogram collection period</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="time-series-messages" class="section level3 unnumbered">
+<h3>Time series messages</h3>
+<dl>
+<dt>Generation of time-series messages</dt>
+<dd>
+</dd>
+<dt>Time interval between TS samples</dt>
+<dd>We selected 5 minute period for our test tags. This was based on average <em>Z. cavirostris</em> dive times for shallow and deep dives while minimizing the number of messages per day. Each time series message contains 48 points, so a higher sampling frequency will result in more messages generated per day. The options are 1.25, 2.5, 5, 7.5, and 10 minute sampling periods. Generating 24, 12, 6, 4, and 3 messages per day respectively.
+</dd>
+<dt>Channels sampled</dt>
+<dd>We have set this to just depth for the BRS test series <em>Z. cavirostris</em> tags. Can also sample temperature. That would double the amount of data transmitted.
+</dd>
+<dt>Start with</dt>
+<dd>This is an initial number of days to collect time-series data for. We’ve set this to 14 days for the BRS test series tag configuration. This way it doesn’t matter when the tag turns on from that point onward it’ll record for 14 days and then duty cycle.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+</dd>
+<dt>then Duty Cycle with</dt>
+<dd>We’ve set this to 0 days off.
+</dd>
+<dt>and</dt>
+<dd>We’ve set this to 0 days on.
+</dd>
+</dl>
+</div>
+<div id="dive-and-timeline-definition" class="section level3 unnumbered">
+<h3>Dive and Timeline Definition</h3>
+<p>These settings determine what qualifies as a dive.</p>
+<dl>
+<dt>Depth reading to determine start and end of dive</dt>
+<dd>We have been typically setting this to wet or dry. There is a risk that if the conductivity sensor is low or fouled or the weather is high that surfacings will be undersampled. While this determines what is a candidate dives it must also pass the following tresholds to be saved as a dive and put in the buffer for transmit.
+</dd>
+<dt>Ignore dives shallower than</dt>
+<dd>We’ve set this to be 50 meters for <em>Z. cavirostris</em> and 75 meters for <em>G. macrorhynchus</em>. The maximum is 75 meters.
+</dd>
+<dt>Ignore dives shorter than</dt>
+<dd>We’ve set this to be 33 minutes for <em>Z. cavirostris</em> and 30 seconds for <em>G macrorhynchus</em>.
+</dd>
+<dt>Depth threshold for timelies</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="behavior-messages" class="section level3 unnumbered">
+<h3>Behavior Messages</h3>
+<dl>
+<dt>Generation of behavior messages</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="stomach-temperature-messages" class="section level3 unnumbered">
+<h3>Stomach Temperature Messages</h3>
+<dl>
+<dt>Generation of stomach temperature messages</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="haulout-defintion" class="section level3 unnumbered">
+<h3>Haulout Defintion</h3>
+<p>There is only one field under this heading and the label changes depending on what is set. For cetaceans, you generally do not set this and so it’ll read <strong>Tag will never enter haulout state</strong>.</p>
+</div>
+<div id="transmission-control" class="section level3 unnumbered">
+<h3>Transmission Control</h3>
+<dl>
+<dt>Transmit data collected over these last days</dt>
+<dd>This is what we call the buffer. This seems simple but it is tricky. The Argos platforms transmit only, they have no idea if a satellite receives anything. In fact they don’t even know if a message is corrupted or not (for example, by water splashing the antenna and interrupting a transmission). The tag only knows whether or not a transmit was attempted. Therefore, the buffer allows some storage of messages so they can be transmitted several times over the course of a few days to increase the likelihood that they will get through the satellite.
+</dd>
+<dd><p>If the buffer is too short, then messages will be deleted before they have an opportunity to be transmitted successfully. If we have about 9% satellite coverage off the coast of North Carolina, then a message should have to be sent about 10 times for 1 to go through.</p>
+</dd>
+<dd><p>If the buffer is too long, our probability of new messages being successfully transmitted goes down. In this example, in the beginning of the deployment the queue will be short because the tag hasn’t been attached long enough to generate enough messages. So given a constant number of opportunities (the animal brings the tag to the surface) there will be more attempts per message. As the deployment goes on the message queue will get longer and longer and there will be fewer and fewer attempts for each message, especially impacting the latest messages which entered the queue when there were already a lot of messages.</p>
+</dd>
+<dd><p>So the key considerations are: data volume (settings dependent), satellite coverage (location dependent), and transmit opportunities (species and settings dependent). Other crucial settings are the transmit budget , transmit duty cycle and collection duty cycle.</p>
+</dd>
+<dd><p>Cascadia’s experience has been that for deep diving cetaceans a <strong>2 day</strong> buffer works well for collecting behavior data and tends to baa lance the above concerns. For our series tag configurations, we used a <strong>100 day</strong> buffer, the maximum, because we were most concerned with successfully receiving all records and adjusted other settings to increase this probability.</p>
+</dd>
+</dl>
+</div>
+<div id="collection-days" class="section level3 unnumbered">
+<h3>Collection days</h3>
+<dl>
+<dt>January - December</dt>
+<dd>Which days to collect data on. For BRS, we have set these to all of the days. This is a way to duty cycle the tag off for specific days.
+</dd>
+</dl>
+</div>
+<div id="relative-transmit-priorities" class="section level3 unnumbered">
+<h3>Relative transmit Priorities</h3>
+<dl>
+<dt>Histogram, Profiles, Time-lines, Stomach Temperature</dt>
+<dd>
+</dd>
+<dt>Fastloc and Light-level Locations</dt>
+<dd>
+</dd>
+<dt>Behavior and Time-Series</dt>
+<dd>
+</dd>
+<dt>Status</dt>
+<dd>Set to every 20 transmissions. I don’t think this can be changed?
+</dd>
+</dl>
+</div>
+<div id="when-to-transmit-settings" class="section level3 unnumbered">
+<h3>When to Transmit Settings</h3>
+<dl>
+<dt>Initially transmit for these hours regardless of settings below</dt>
+<dd>We’ve set this to 24. This comes from Cascadia. I assume the reason is to aid in determining if the tag is working properly and the deployment is OK.
+</dd>
+<dt>Transmit hours</dt>
+<dd>This is based on an analysis of a satellite availability conducted by the tagger. For BRS, we have increased transmit hours to times when there is very poor or no satellite coverage but there is a possibility we will be offshore. We can use the goniometer to track animals as well as capture transmitted messages.
+</dd>
+</dl>
+</div>
+<div id="transmit-days" class="section level3 unnumbered">
+<h3>Transmit Days</h3>
+<dl>
+<dt>January - December</dt>
+<dd>Same as above for collection, but for transmission.
+</dd>
+</dl>
+</div>
+<div id="daily-transmit-allowance" class="section level3 unnumbered">
+<h3>Daily Transmit Allowance</h3>
+<dl>
+<dt>January - December</dt>
+<dd>Can only give one number per month which will apply to every day in that month. We’ve been using <strong>700-750</strong> for <em>G. macrorhynchus</em> and <strong>470</strong> for <em>Z. cavirostris</em>. In both cases we’ve set to <strong>not accumulate</strong> and <strong>not optimize for battery life</strong>. These numbers have been tested as effective by Cascadia.
+</dd>
+<dd><p>Some things to consider for transmission number include animal activity patterns, satellite coverage, and battery life. Transmissions use battery, so setting this number very high could lead to early battery drain. In the case of <em>Z. cavirostris</em> this is unlikely since they spend little time at the surface they generally do not hit the 470 transmit limit. <em>G. macrorhynchus</em> however can spend hours logging at the surface and may go through their entire transmit budget relatively quickly. Making this number smaller helps avoid the situation where the animals are spending a lot of battery life but not sending very informative data (not moving quickly or diving very much). The drawback to making this number small is that it may be used up before good satellite windows during the day.</p>
+</dd>
+</dl>
+</div>
+<div id="channel-settings" class="section level3 unnumbered">
+<h3>Channel Settings</h3>
+<p>These settings pertain to the sensors and their calibrations.</p>
+</div>
+<div id="depth" class="section level3 unnumbered">
+<h3>Depth</h3>
+<p>This field also indicates if the tag is extended depth or not by looking in the value of the field under <strong>Range</strong> and <strong>Resolution</strong>.</p>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+<dt>Compensation factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="internal-temperature" class="section level3 unnumbered">
+<h3>Internal Temperature</h3>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="external-temperature" class="section level3 unnumbered">
+<h3>External Temperature</h3>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="depth-sensor-temperature" class="section level3 unnumbered">
+<h3>Depth Sensor Temperature</h3>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="battery-voltage" class="section level3 unnumbered">
+<h3>Battery Voltage</h3>
+</div>
+<div id="wetdry" class="section level3 unnumbered">
+<h3>Wet/Dry</h3>
+</div>
+<div id="notes-10" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li><p>20181205 - It looks like there is something wrong with the configuration file as uploaded to the wildlife portal for GmTag200. The settings don’t appear to match with what the tag actually performed.</p></li>
+<li><p>We are missing ZcTag089 wch file. The htm file is sufficient for decoding, etc., however.</p></li>
+</ul>
+</div>
+</div>
+<div id="tag_datastreams" class="section level2">
+<h2><span class="header-section-number">3.6</span> tag_datastreams</h2>
+<p>These are the tag datastreams organized by each sattag deployid. Within each tag directory is up to 4 subdirectories: <strong>douglas, gonio, kalman, portal</strong>.</p>
+<div id="douglas-argos-filter" class="section level3 unnumbered">
+<h3>douglas (argos-filter)</h3>
+<p>These are the douglas filtered positions (see <a href="https://www.usgs.gov/software/douglas-argos-filter-algorithm">douglas user manual</a>, <a href="https://www.movebank.org/cms/movebank-content/argos-data-filters">movebank user manual</a>, <a href="https://doi.org/10.1111/j.2041-210X.2012.00245.x">douglas filter manuscript</a>). If the directory name ends in <code>_leastsquares</code>, then these positions were filtered from the older leastsquares position estimation algorithm. See the <a href="https://www.argos-system.org/manual/">Argos manual</a> and this CLS <a href="https://www.argos-system.org/support-and-help/faq-kalman/">FAQ</a> for more details. If this is the case there should also be a <strong>kalman</strong> directory with newly estimated positions. These have not been run through the douglas alogirthm yet.</p>
+<p>The file name should identicate whether the source of these data are the original SAS program or the new implementation in movebank. The <a href="https://www.movebank.org/cms/movebank-main">movebank</a> algorithm <em>should</em> produce identical output to the original SAS program^[I am not sure this is strictly true but haven’t been able to determine this with certainty). User defined settings shoudl be <strong>maximum rate of movements = 15 kph, maximum redudant distance = 3km, default rate coefficient for marine mammals = 25, location classes 2 and 3 retained.</strong></p>
+</div>
+<div id="gonio-1" class="section level3 unnumbered">
+<h3>gonio</h3>
+<p>These are decoded goniometer recieved messages in the same format as <strong>portal</strong> (see below for details). There is an example of how these data might be combined with the portal data <a href="https://bdtc.netlify.app/2021/01/14/intgon/">here</a> using <a href="https://github.com/williamcioffi/sattagutils">sattagutils</a>.</p>
+</div>
+<div id="portal" class="section level3 unnumbered">
+<h3>portal</h3>
+<p>This is the majority of satallite tag data. We receive this data via the Wildlife Computers data portal. Before proceeding with this data you should review the <a href="https://static.wildlifecomputers.com/Spreadsheet-File-Descriptions-3.pdf">file descriptors</a> as well as any other applicable <a href="https://wildlifecomputers.com/support/downloads/">manuals from Wildlife Computers</a>.</p>
+<p>There is a brief tutorial on importing these datastreams using sattagutils <a href="https://bdtc.netlify.app/2021/01/14/sattagutilsquick/">here</a>.</p>
+<p>Since Wildlife Computers has documentation linked above, I will just stress here some important points that are either difficult to understand or not well documented. In addition, I’ve pointed out where some of the csv files for the data streams are not well formatted and so they may cause problems if you are trying to ingest them into your database. This was the main motivation for writing sattagutils.</p>
+</div>
+<div id="date-formats" class="section level3 unnumbered">
+<h3>Date formats</h3>
+<ul>
+<li>%m/%d/%Y %H:%M:%S
+<ul>
+<li>*-All.csv: <strong>Loc. date</strong>, <strong>Msg Date</strong></li>
+</ul></li>
+<li>%H:%M:%S %d-%b-%Y
+<ul>
+<li>*-Behavior.csv: <strong>Start</strong>, <strong>End</strong></li>
+<li>*-Corrupt.csv: <strong>Date</strong>, <strong>Possible.Timestamp</strong></li>
+<li>*-SeriesRange.csv: <strong>Start</strong>, <strong>End</strong></li>
+<li>*-Status.csv: <strong>Received</strong>, <strong>RTC</strong></li>
+<li>*-Summary.csv<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>: <strong>EarliestXmitTime</strong>, <strong>LatestXmitTime</strong>, <strong>EarliestDataTime</strong>, <strong>LatestDataTime</strong></li>
+</ul></li>
+<li>Time (%H:%M:%S) and date (%d-%b-%Y) in separate fields
+<ul>
+<li>*-FastGPS.csv: <strong>Time</strong>, <strong>Day</strong></li>
+<li>*-RTC.csv: <strong>TagTime</strong>, <strong>RealTime</strong>; <strong>TagDate</strong>, <strong>RealDate</strong></li>
+<li>*-RawArgos.csv: <strong>PassTime</strong>, <strong>MsgTime</strong>; <strong>PassDate</strong>, <strong>MsgDate</strong></li>
+<li>*-Series.csv: <strong>Time</strong>, <strong>Day</strong></li>
+</ul></li>
+</ul>
+</div>
+<div id="malformed" class="section level3 unnumbered">
+<h3>Malformed</h3>
+<p>There are minor things to watch out for in all of the data streams including inconsistent capitalization schemes and field names with lots of whitespace and other odd characters.</p>
+<p>A couple streams in particular are saved by default into files with the csv extension, but they aren’t proper csvs.</p>
+<p><strong>*-RawArgos.csv</strong></p>
+<p>This stream always has 4 lines extra lines at the bottom which aren’t part of a csv. 2 blank lines are followed by 2 line (1 header) table with PTT, Diags, Passes, and Msgs. If you’re trying to load this file into R as a csv you’ll get an error.</p>
+<p><strong>*-FastGPS.csv</strong></p>
+<p>This stream has 3 blank extra lines before the header at the beginning. Again you can’t load this file straight into R as a csv without an error.You also often get multiple versions of *-FastGPS.csv in a directory downloaded from the portal.</p>
+<p>Instead of <strong>DeployID</strong> and <strong>Ptt</strong> this stream uses <strong>Name</strong>. I believe it defaults to <strong>DeployID</strong> unless none is present in which case it displays <strong>Ptt</strong>. This is the general behavior of <strong>DeployID</strong> as far as I know actually.</p>
+<p>In addition if decoding with DAP / Argos Message Decoder and there are multiple tags in a PRV file, each new tag will include the 3 blank lines and header in the middle of the csv.</p>
+<p><strong>*-Labels.csv</strong></p>
+<p>There is something wrong with this file. I think it be missing an EOF or something? It is also a tall table instead of a wide table (like every other stream).</p>
+</div>
+<div id="field-details" class="section level3 unnumbered">
+<h3>Field details</h3>
+<p><strong>*-Behavior.csv</strong></p>
+<dl>
+<dt>Start / End</dt>
+<dd>These times are actually a little confusing. To understand them, recall that blocks of summary information about ‘dives’ and ‘surface’ behavior events are collated into a single ‘message’ for uplink to Argos satellites. The start and end times are not actually recorded on a clock for any of these behavior events. Instead something like a running count of seconds since the start of the message block (which is a clock time) is uplinked and then everything is converted back to clock time for the csv file output. I think this is a method to save space and make the messages smaller since Argos bandwidth is limited. This would all be fine, however, the start time of the message is recorded without seconds.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
+</dd>
+<dd><p>This is a big deal. The start time of a message is only recorded to minute accuracy. All events within a message block are recorded to second accuracy (in number of seconds since the start of message) but the clock times reported in the behavior csv are off by an unknown and variable amount of seconds. This is troublesome if you are looking at coordinated behavior among multiple animals. It can also lead to overlapping times when a new behavior event starts (at the beginning of a message block) before the previous one ends (at the end of the preceding message block).<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+</dd>
+<dt>DepthMax / DepthMin</dt>
+<dd>These are confusing because they both actually refer to an estimate of the maximum depth on a dive. The tag is actually sampling at some rate specified in the settings (we’ve been using 1 second) and using that data to generate the summary information about dives that ends up in the behavior stream. The sampled value for the maximum depth on a dive is encoded for upload to satellite and in that process some resolution is lost. So <span class="math inline">\(DepthMax - DepthMin\)</span> is the error band for the real maximum depth. Note that this is just error in the sense of resolution of the data encoding, it doesn’t actually have anything to do with the measurement error in the pressure transducer.
+</dd>
+<dt>DurationMax / DurationMin</dt>
+<dd>I do not know how these are generated.
+</dd>
+</dl>
+<p><strong>*-Series.csv</strong></p>
+<dl>
+<dt>Depth</dt>
+<dd>the depths are heavily binned in series data. 16 bins are created on the tag based on the overall min/max depth of that message. Then what is transmitted to the satellite is the min/max depth (with some error) and the bin numbers instead of actual depth values. This is simple because the bandwidth is so limited. Therefore the depth bins are recreated on the server with some error as noted. <strong>This is a big deal and will need to be carefully considered before any analyses on depth.</strong>
+</dd>
+<dt>DRange</dt>
+<dd>the +/- error on the series depth.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> This is confusing because it is called DRange which I assume stands for depth range and the text in the docs is ambiguous.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> So to calculate the actual error band it would be <span class="math inline">\(2 \cdot DRange\)</span>. This is error in the sense of resolution of the data encoding, it doesn’t actually have anything to do with measurement error in the pressure transducer. <a href="examples/drange.html">Here</a> is an interactive plot of a large number of depths, dranges, and maximum depths.
+</dd>
+</dl>
+<p><strong>*-Status.csv</strong></p>
+<p>Note an important difference between the standard and extended depth pressure transducer configurations on SPLASH10 tags. The standard tags have a 0.5 meter resolution and report <strong>Zero Depth Offset</strong> in counts, so 30 counts is actually 15 meters. This is processed out in the *-Behavior.csv depth fields as well as the <strong>Depth</strong> field in the *-Status.csv.</p>
+<dl>
+<dt>Zero Depth Offset</dt>
+<dd>is applied only 1 (count / meter?) at a time and only goes up to +/- 40 (count / meter?). At drifts greater than this, no offset is applied (and so if you were just looking at offset it would look like everything is normal with the transducer.
+</dd>
+<dt>Type</dt>
+<dd>indicates whether a status message has passed a CRC (cyclic redundancy check; an error checking mechanism). If the value in this column is ‘CRC’ then the message did in fact pass the CRC. If the value is blank then there was no CRC, but the message is not necessarily corrupt. If a message fails CRC it is actually put in the *-Corrupt.csv stream. Probably the most common reason for this is the transmission was interrupted by water splashing on the antenna (or the animal submerging). Note also that messages which pass CRC can still be corrupted in different ways.
+</dd>
+<dd><p>Between 2016 and 2017 an error was corrected which was causing too few status messages to come through. For example, prior to 2017, number of transmits never came through on a CRC message only on messages with a blank value in the type field. It is still true that the frequency different fields in status are populated varies from field to field.</p>
+</dd>
+</dl>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>SPLASH10 tags have a 1/2 second wake up time, while SPOT6 have a 1/4 second wake up. By increasing the sampling rate, we can hack the SPLASH10 to have a 1/4 second wake up at the cost of power. Is this because it is actually logging at that higher sampling rate? I’m not sure.<a href="satellite-tag-data.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Note that this is 14 whole days (measured in UTC). So even if a tag is only on for several hours on the first day this counts as one whole day for the purpose of this count.<a href="satellite-tag-data.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>I’ve never seen <strong>ReleaseDate</strong> and <strong>DeployDate</strong> so I’m not sure if they are implemented in the same way or not.<a href="satellite-tag-data.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>I think they are rounded, but it is a little hard to tell.<a href="satellite-tag-data.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Another case of overlapping message blocks occured from a corrupt message which apparently wasn’t caught by the decoding software. This produced one extremely long message which overlapped with many others in time. We also sent some overlapping <em>G. macrorhynchus</em> behavior records to Wildlife Computers but have not heard back. I am not sure if these were just the result of clock inaccuracy or not.<a href="satellite-tag-data.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>I assume <strong>TRange</strong> is the same but do not know for sure.<a href="satellite-tag-data.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>See page 22 of <a href="https://wildlifecomputers.com/support/downloads/">Spreadsheet-File-Descriptions.pdf</a><a href="satellite-tag-data.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tagmeta.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dtags.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

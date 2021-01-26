@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 DTAGs | Atlantic BRS data docs</title>
+  <meta name="description" content="companion to the atlantic brs data portal" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 DTAGs | Atlantic BRS data docs" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://atlanticbrs.github.com/data_docs" />
+  
+  <meta property="og:description" content="companion to the atlantic brs data portal" />
+  <meta name="github-repo" content="atlanticbrs/data_manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 DTAGs | Atlantic BRS data docs" />
+  
+  <meta name="twitter:description" content="companion to the atlantic brs data portal" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="satellite-tag-data.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">AtlanticBRS data manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#this-is-a-draft-contributions-welcome"><i class="fa fa-check"></i>This is a draft; contributions welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="cee-metadata.html"><a href="cee-metadata.html"><i class="fa fa-check"></i><b>1</b> CEE metadata</a><ul>
+<li class="chapter" data-level="1.1" data-path="cee-metadata.html"><a href="cee-metadata.html#cee_metadata_flat.csv"><i class="fa fa-check"></i><b>1.1</b> cee_metadata_flat.csv</a><ul>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#notes"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="cee-metadata.html"><a href="cee-metadata.html#atlantic-brs_ee-metadata.xlsx"><i class="fa fa-check"></i><b>1.2</b> ATLANTIC-BRS_EE Metadata.xlsx</a><ul>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#tabs-1-7"><i class="fa fa-check"></i>Tabs 1-7</a></li>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#tab-8"><i class="fa fa-check"></i>Tab 8</a></li>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#notes-1"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="cee-metadata.html"><a href="cee-metadata.html#summary-subdirectories"><i class="fa fa-check"></i><b>1.3</b> Summary subdirectories</a><ul>
+<li class="chapter" data-level="" data-path="cee-metadata.html"><a href="cee-metadata.html#notes-2"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tagmeta.html"><a href="tagmeta.html"><i class="fa fa-check"></i><b>2</b> Tag Metadata</a><ul>
+<li class="chapter" data-level="2.1" data-path="tagmeta.html"><a href="tagmeta.html#tagdeploy_metadata.xls"><i class="fa fa-check"></i><b>2.1</b> tagdeploy_metadata.xls</a><ul>
+<li class="chapter" data-level="" data-path="tagmeta.html"><a href="tagmeta.html#notes-3"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="tagmeta.html"><a href="tagmeta.html#tagged_animal_morphometrics.csv-not-implemented-yet"><i class="fa fa-check"></i><b>2.2</b> tagged_animal_morphometrics.csv (!not implemented yet)</a><ul>
+<li class="chapter" data-level="" data-path="tagmeta.html"><a href="tagmeta.html#notes-4"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="tagmeta.html"><a href="tagmeta.html#atn_tag_deployment_metadata.csv"><i class="fa fa-check"></i><b>2.3</b> atn_tag_deployment_metadata.csv</a><ul>
+<li class="chapter" data-level="" data-path="tagmeta.html"><a href="tagmeta.html#notes-5"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html"><i class="fa fa-check"></i><b>3</b> Satellite tag data</a><ul>
+<li class="chapter" data-level="3.1" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#gonio"><i class="fa fa-check"></i><b>3.1</b> gonio</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-6"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#sattag-gonio-gps-match"><i class="fa fa-check"></i><b>3.2</b> sattag gonio gps match</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#inputs"><i class="fa fa-check"></i>inputs</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#more-on-gpx"><i class="fa fa-check"></i>more on gpx</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#outputs"><i class="fa fa-check"></i>outputs</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-7"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#pass_predictions"><i class="fa fa-check"></i><b>3.3</b> pass_predictions</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-8"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#photos_videos"><i class="fa fa-check"></i><b>3.4</b> photos_videos</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-9"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#sattagsettings"><i class="fa fa-check"></i><b>3.5</b> settings</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#host-settings"><i class="fa fa-check"></i>Host Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#time-and-date-settings"><i class="fa fa-check"></i>Time and Date Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#general-settings"><i class="fa fa-check"></i>General Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#data-to-archive-settings"><i class="fa fa-check"></i>Data to Archive Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#data-to-transmit-settings"><i class="fa fa-check"></i>Data to Transmit Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#histogram-collection"><i class="fa fa-check"></i>Histogram Collection</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#time-series-messages"><i class="fa fa-check"></i>Time series messages</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#dive-and-timeline-definition"><i class="fa fa-check"></i>Dive and Timeline Definition</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#behavior-messages"><i class="fa fa-check"></i>Behavior Messages</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#stomach-temperature-messages"><i class="fa fa-check"></i>Stomach Temperature Messages</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#haulout-defintion"><i class="fa fa-check"></i>Haulout Defintion</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#transmission-control"><i class="fa fa-check"></i>Transmission Control</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#collection-days"><i class="fa fa-check"></i>Collection days</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#relative-transmit-priorities"><i class="fa fa-check"></i>Relative transmit Priorities</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#when-to-transmit-settings"><i class="fa fa-check"></i>When to Transmit Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#transmit-days"><i class="fa fa-check"></i>Transmit Days</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#daily-transmit-allowance"><i class="fa fa-check"></i>Daily Transmit Allowance</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#channel-settings"><i class="fa fa-check"></i>Channel Settings</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#depth"><i class="fa fa-check"></i>Depth</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#internal-temperature"><i class="fa fa-check"></i>Internal Temperature</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#external-temperature"><i class="fa fa-check"></i>External Temperature</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#depth-sensor-temperature"><i class="fa fa-check"></i>Depth Sensor Temperature</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#battery-voltage"><i class="fa fa-check"></i>Battery Voltage</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#wetdry"><i class="fa fa-check"></i>Wet/Dry</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#notes-10"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#tag_datastreams"><i class="fa fa-check"></i><b>3.6</b> tag_datastreams</a><ul>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#douglas-argos-filter"><i class="fa fa-check"></i>douglas (argos-filter)</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#gonio-1"><i class="fa fa-check"></i>gonio</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#portal"><i class="fa fa-check"></i>portal</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#date-formats"><i class="fa fa-check"></i>Date formats</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#malformed"><i class="fa fa-check"></i>Malformed</a></li>
+<li class="chapter" data-level="" data-path="satellite-tag-data.html"><a href="satellite-tag-data.html#field-details"><i class="fa fa-check"></i>Field details</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dtags.html"><a href="dtags.html"><i class="fa fa-check"></i><b>4</b> DTAGs</a><ul>
+<li class="chapter" data-level="4.1" data-path="dtags.html"><a href="dtags.html#tag-metadata"><i class="fa fa-check"></i><b>4.1</b> Tag Metadata</a></li>
+<li class="chapter" data-level="4.2" data-path="dtags.html"><a href="dtags.html#bench-testing"><i class="fa fa-check"></i><b>4.2</b> Bench testing</a></li>
+<li class="chapter" data-level="4.3" data-path="dtags.html"><a href="dtags.html#bench-test-pre-field"><i class="fa fa-check"></i><b>4.3</b> Bench test pre-field</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#dtag-calibration-datasheet"><i class="fa fa-check"></i>DTAG calibration datasheet</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dtags.html"><a href="dtags.html#pre-deploy-setup"><i class="fa fa-check"></i><b>4.4</b> Pre-deploy setup</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#dtag3-pre-worksheet"><i class="fa fa-check"></i>DTAG3 pre worksheet</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dtags.html"><a href="dtags.html#calibration-files"><i class="fa fa-check"></i><b>4.5</b> Calibration files</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-11"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dtags.html"><a href="dtags.html#raw-data-dtgs"><i class="fa fa-check"></i><b>4.6</b> Raw Data (DTGs)</a><ul>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-12"><i class="fa fa-check"></i>notes</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Atlantic BRS data docs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dtags" class="section level1">
+<h1><span class="header-section-number">4</span> DTAGs</h1>
+<div id="tag-metadata" class="section level2">
+<h2><span class="header-section-number">4.1</span> Tag Metadata</h2>
+<p>box link: <a href="https://duke.app.box.com/folder/124248258732" class="uri">https://duke.app.box.com/folder/124248258732</a>
+See section <a href="tagmeta.html#tagmeta">2</a> for details.</p>
+</div>
+<div id="bench-testing" class="section level2">
+<h2><span class="header-section-number">4.2</span> Bench testing</h2>
+<p>This is a section for any information saved from bench tests prior to the tags arriving in the field. This is currently empty.</p>
+</div>
+<div id="bench-test-pre-field" class="section level2">
+<h2><span class="header-section-number">4.3</span> Bench test pre-field</h2>
+<p>This is for tests conducted generally at DUML but before any deployment on a tag to test that the tag is functioning. These tests might include:</p>
+<ol style="list-style-type: decimal">
+<li>Salt water switch activation</li>
+<li>Hydrophone recording test</li>
+<li>Voltage and resistance test of burn</li>
+<li>Spin tests of all three axes</li>
+<li>VHF test and initial tuning</li>
+</ol>
+<p>There should be one directory per tag including at least a DTG and a README explaining tests.</p>
+<div id="dtag-calibration-datasheet" class="section level3 unnumbered">
+<h3>DTAG calibration datasheet</h3>
+<p>This is a worksheet / checklist for predeployment tests borrowed for JS and the VA Beach Humpback field effort.</p>
+<p><strong>cols:</strong></p>
+<p>Each column represents a pre-field (or pre-expedition) checklist for a single tag. A new column should be made for each check even if it is the same tag from a previous year.</p>
+<p><strong>rows:</strong></p>
+<ul>
+<li><strong>Tag#</strong> this is a short name using in the form D### for the tag</li>
+<li><strong>Date</strong> the date of the checklist</li>
+<li><strong>Tag ID</strong> this is an actual serial number for the tag and tends to be 8 digits</li>
+<li><strong>Frequency</strong> this is the nominal frequency of the tag and should be printed on the tag somewhere.</li>
+<li><strong>Tuned frequency</strong> this is the tuned frequency used for testing. Each reciever will have to be individually tuned before deployments.</li>
+<li><strong>Problems summary</strong> either <code>Ready</code>, <code>pending</code>, or <code>failed</code></li>
+<li><strong>Visual inspection</strong> a short description of the condition of the tag an <code>x</code> indicates good overall condition.</li>
+<li><strong>D3host connection</strong> any notes on failures for connections or an <code>x</code> for good consistent connections.</li>
+<li><strong>firmawre</strong> the currently installed firmware version</li>
+<li><strong>MSP fireware</strong> the currently installed firmware version</li>
+<li><strong>Acoustic sampling</strong></li>
+<li><strong>Battery voltage</strong></li>
+<li><strong>LED lights</strong></li>
+<li><strong>SWS</strong></li>
+<li><strong>Configuration</strong> an <code>x</code> indicates complete</li>
+<li><strong>Arm</strong> an <code>x</code> indicates complete</li>
+<li><strong>Triger</strong> an <code>x</code> indicates complete</li>
+<li><strong>VHF Beacon</strong> an <code>x</code> indicates functioning</li>
+<li><strong>Release voltage L+R</strong> Voltage separated by a comma during a burn test.</li>
+<li><strong>Programmed release</strong> an <code>x</code> indicates functioning</li>
+<li><strong>Sensor sample rate</strong> in Hz</li>
+<li><strong>Flip test</strong> Flipping over each axis. an `<code>x</code> indicates complete and approved (by looking at the resultant data)</li>
+<li><strong>Rotation test</strong> rotating around the cardinal directions. an <code>x</code> indicates complete and approved (by looking at the resultant data)</li>
+<li><strong>notes</strong> any additional notes</li>
+<li><strong>hydrophone tap test</strong> an <code>x</code> indicates approved (by listening/inspecting the resultant wav files)</li>
+<li><strong>reflective tap</strong> an <code>x</code> indicates present.</li>
+<li><strong>cell phone number</strong> an <code>x</code> indicates present.</li>
+<li><strong>radio frequency tuning</strong> an <code>x</code> indicates complete.</li>
+<li><strong>Float test</strong> <code>yes</code> or <code>no</code> and an indication if it was completed in <code>fresh</code> or <code>salt</code> water separated by comma.</li>
+<li><strong>Cup attachment test</strong> an <code>x</code> indicates complete and successful.</li>
+<li><strong>Cal file</strong> an <code>x</code> indicates in possession and archived.</li>
+<li><strong>Battery voltage</strong> (target: around 3-4.2)**</li>
+<li><strong>Thermistor voltage (target: around 1)</strong></li>
+<li><strong>PB+ voltage (around 2.1)</strong></li>
+<li><strong>PB- Voltage (around 0.12)</strong></li>
+<li><strong>Pressure voltage (around 0.1, no spikes)</strong></li>
+<li><strong>External Voltage (if in use)</strong></li>
+<li><strong>Mz voltage (around 1)</strong></li>
+<li><strong>Magnetometer voltage (self-calibration signal in start)</strong></li>
+<li><strong>MB+ Voltage (around 1.05 for Hurst tags)</strong></li>
+<li><strong>MB- voltage (around 0.12)</strong></li>
+<li><strong>Mtst0mV voltage (around 1)</strong></li>
+<li><strong>Mtst3mV voltage (around 0.4)</strong></li>
+<li><strong>Magnetometer preamp gain (around 194)</strong></li>
+<li><strong>MAG CAL (x,y,z) (around 1+/- 0.03)</strong></li>
+<li><strong>MAG CAL residual (2-4%)</strong></li>
+<li><strong>Balance</strong></li>
+<li><strong>ACC CAL (x,y,z) (around 5 and -2.5)</strong></li>
+<li><strong>ACC CAL residual</strong></li>
+<li><strong>Balance</strong></li>
+<li><strong>Author</strong></li>
+</ul>
+</div>
+</div>
+<div id="pre-deploy-setup" class="section level2">
+<h2><span class="header-section-number">4.4</span> Pre-deploy setup</h2>
+<p>There are two main items in this directory:
+1. A prep worksheet based on the VA beach field effort courtsey of JS.
+2. A summary of the D3host settings used prior to any DTAG deployment. Currently these are screenshots. These can be transcribed to a metadata sheet in the future, retaining the screenshot as an audit.</p>
+<div id="dtag3-pre-worksheet" class="section level3 unnumbered">
+<h3>DTAG3 pre worksheet</h3>
+<p>Currently this is not updated but serves as a checklist of checks prior to any DTAG deployment.</p>
+</div>
+</div>
+<div id="calibration-files" class="section level2">
+<h2><span class="header-section-number">4.5</span> Calibration files</h2>
+<p>These are manufacter supplied calibration files neccessary for processing DTAG data. filenames tend to be in the format dx###.xml</p>
+<div id="notes-11" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li>The ID in dx312 does not match what d3read reports for the physical tag. In the xml: e3232f17, in d3read: 71232222.</li>
+</ul>
+</div>
+</div>
+<div id="raw-data-dtgs" class="section level2">
+<h2><span class="header-section-number">4.6</span> Raw Data (DTGs)</h2>
+<p>There should be one directory per recovered DTAG. There are two types of directories here:</p>
+<ol style="list-style-type: decimal">
+<li>Deployed on animals and the directory name should be in the format [Sp][YY]_[JULIANDAY][a, b, c, …].</li>
+<li>Deployed from a boat to record RLs during a CEE and directory name should be in the format [YYYYMMDD]<em>CEE</em>[SOURCE PLATFORM]_RLs.</li>
+</ol>
+<p>Within each directory should be the <code>\*.dtg</code> files as well as a directory <code>unpacked</code> including <code>\*.wav</code>, <code>\*.swv</code>, and <code>\*.xml</code> corresponding to each dtg.</p>
+<div id="notes-12" class="section level3 unnumbered">
+<h3>notes</h3>
+<ul>
+<li>In Gm17_234a there appears to be a missing DTG #6. There is a #6 <code>swv</code> and <code>xml</code> in the unpacked directory but no <code>dtg</code> or <code>wav</code>. Likely this is after recovery?</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="satellite-tag-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

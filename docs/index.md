@@ -14,7 +14,7 @@ description: 'companion to the atlantic brs data portal'
 
 ![](images/logo.svg)
 
-This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://bdtc.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**BRS DATA CONTACT**) directly.
+This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://bdtc.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**brandon [dot] southall [at] sea-inc [dot] net**) directly.
 
 For questions or problems with this manual or if you are interested in contributing directly please email **wrc14 [at] duke [dot] edu**.
 
@@ -51,4 +51,4 @@ Kenady Wilson.
 
 ----
 
-_Document last updated: 2021-01-26_
+_Document last updated: 2021-01-29_

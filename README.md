@@ -1,5 +1,5 @@
 # Atlantic BRS data documentation
-This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://brsdataportalbeta.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**brandon [dot] southall [at] sea-inc [dot] net**) directly. If this is not where you expected to be you might be looking for the [Atlantic BRS public website](https://brsmainpagebeta.netlify.app)?
+This [manual](https://atlanticbrs.github.io/data_docs) is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://brsdataportalbeta.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**brandon [dot] southall [at] sea-inc [dot] net**) directly. If this is not where you expected to be you might be looking for the [Atlantic BRS public website](https://brsmainpagebeta.netlify.app)?
 
 For questions or problems with this manual or if you are interested in contributing directly please email **wrc14 [at] duke [dot] edu**.
 

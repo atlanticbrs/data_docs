@@ -14,7 +14,7 @@ description: 'companion to the atlantic brs data portal'
 
 ![](images/logo.svg)
 
-This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://bdtc.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**brandon [dot] southall [at] sea-inc [dot] net**) directly.
+This manual is intended as a companion, explanation, and data dictionary for the [Atlantic BRS data portal](https://brsdataportalbeta.netlify.app). The information contained here is primarily intended for those who are actively working on the project and already have access to the data. For questions about obtaining access please contact (**brandon [dot] southall [at] sea-inc [dot] net**) directly.
 
 For questions or problems with this manual or if you are interested in contributing directly please email **wrc14 [at] duke [dot] edu**.
 
@@ -24,7 +24,7 @@ This is a work in progress and currently a very early draft (in January 2021). P
 
 ## Getting started {-}
 
-If you are looking for an explanation for a particular data stream, you might want to start at the [data portal website](https://bdtc.netlify.app) and follow a direct link to the section of interest. Otherwise you can use the table of contents on the left to navigate to your area of interest.
+If you are looking for an explanation for a particular data stream, you might want to start at the [data portal website](https://brsdataportalbeta.netlify.app) and follow a direct link to the section of interest. Otherwise you can use the table of contents on the left to navigate to your area of interest.
 
 ## Acknowledgements {-}
 

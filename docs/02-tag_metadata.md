@@ -45,7 +45,7 @@ Each row is a single tag deployment event.
 
 ## tagged_animal_morphometrics.csv (!not implemented yet)
 
-At least for pilot whales, a length estimate can be made by comparing the dimensions of the tag to the base of the dorsal fin which correlates well to the total length of the animal^[see [Bowers 2015]() for an example with dtags and the BRS data portal [website for some chitchat](https://bdtc.netlify.app/2020/11/05/gmamorpho/).].  
+At least for pilot whales, a length estimate can be made by comparing the dimensions of the tag to the base of the dorsal fin which correlates well to the total length of the animal^[see [Bowers 2015]() for an example with dtags and the BRS data portal [website for some chitchat](https://brsdataportalbeta.netlify.app/2020/11/05/gmamorpho/).].  
 
 **rows:**
 

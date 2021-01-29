@@ -435,13 +435,13 @@ The file name should identicate whether the source of these data are the origina
 
 ### gonio {-}
 
-These are decoded goniometer recieved messages in the same format as **portal** (see below for details). There is an example of how these data might be combined with the portal data [here](https://bdtc.netlify.app/2021/01/14/intgon/) using [sattagutils](https://github.com/williamcioffi/sattagutils).
+These are decoded goniometer recieved messages in the same format as **portal** (see below for details). There is an example of how these data might be combined with the portal data [here](https://brsdataportalbeta.netlify.app/2021/01/14/intgon/) using [sattagutils](https://github.com/williamcioffi/sattagutils).
 
 ### portal {-}
 
 This is the majority of satallite tag data. We receive this data via the Wildlife Computers data portal. Before proceeding with this data you should review the [file descriptors](https://static.wildlifecomputers.com/Spreadsheet-File-Descriptions-3.pdf) as well as any other applicable [manuals from Wildlife Computers](https://wildlifecomputers.com/support/downloads/).
 
-There is a brief tutorial on importing these datastreams using sattagutils [here](https://bdtc.netlify.app/2021/01/14/sattagutilsquick/).
+There is a brief tutorial on importing these datastreams using sattagutils [here](https://brsdataportalbeta.netlify.app/2021/01/14/sattagutilsquick/).
 
 Since Wildlife Computers has documentation linked above, I will just stress here some important points that are either difficult to understand or not well documented. In addition, I've pointed out where some of the csv files for the data streams are not well formatted and so they may cause problems if you are trying to ingest them into your database. This was the main motivation for writing sattagutils.
 

@@ -2,8 +2,11 @@
 
 
 ## Tag Metadata 
-box link: https://duke.app.box.com/folder/124248258732
-See section \@ref(tagmeta) for details.
+
+The tag metadata will be integrated with sattag metadata eventually, but currently is temporarily housed at the following link: https://duke.app.box.com/folder/129673379781
+
+<!--box link: https://duke.app.box.com/folder/124248258732
+See section \@ref(tagmeta) for details.-->
 
 ## Bench testing
 
@@ -86,7 +89,7 @@ Each column represents a pre-field (or pre-expedition) checklist for a single ta
 ## Pre-deploy setup
 
 There are two main items in this directory:
-1. A prep worksheet based on the VA beach field effort courtsey of JS.
+1. A prep worksheet based on the VA beach field effort courtesy of JS.
 2. A summary of the D3host settings used prior to any DTAG deployment. Currently these are screenshots. These can be transcribed to a metadata sheet in the future, retaining the screenshot as an audit.
 
 ### DTAG3 pre worksheet {-}
@@ -95,21 +98,35 @@ Currently this is not updated but serves as a checklist of checks prior to any D
 
 ## Calibration files
 
-These are manufacter supplied calibration files neccessary for processing DTAG data. filenames tend to be in the format dx###.xml
+These are manufacter supplied calibration files neccessary for processing DTAG data. filenames tend to be in the format `dx###.xml`. Note that these are separate from the `cal` files which are created during the `prh` processing. These files can be found in `dtag_data` under the individual tags.
 
 ### notes {-}
 
 - The ID in dx312 does not match what d3read reports for the physical tag. In the xml: e3232f17, in d3read: 71232222.
 
-## Raw Data (DTGs)
+## dtag_data
 
-There should be one directory per recovered DTAG. There are two types of directories here:
+There should be one directory per recovered DTAG. There are two types of directories here: (1) `boat_deployments` which were deployed near the surtface from a boat to record RLs during a CEE. Each directory represents a recording sequence and should be in the format `[YYYYMMDD]_CEE_[SOURCE PLATFORM]_RLs` and (2) `animal_deployments` which are standard dtag deployments on animals and should be in the format `[Sp][YY]_[JULIANDAY][a, b, c, ...]`.
 
-1. Deployed on animals and the directory name should be in the format [Sp][YY]_[JULIANDAY][a, b, c, ...].
-2. Deployed from a boat to record RLs during a CEE and directory name should be in the format [YYYYMMDD]_CEE_[SOURCE PLATFORM]_RLs.
+Within each directory there can be the following files and directories:
 
-Within each directory should be the ```\*.dtg``` files as well as a directory ```unpacked``` including ```\*.wav```, ```\*.swv```, and ```\*.xml``` corresponding to each dtg.
+1. Setup file descriptions or screenshot
+1. Post-deployment datasheet
+1. Offload audit (usually a screenshot)
+1. `dtg` a directory containing the raw dtgs offloaded from the tag
+1. `unpacked` a directory containing the unpacked dtgs which consist of one of the following for each dtg
+    - `*.svw` sensor data file
+    - `*.wav` audio file
+    - `*.xml` metadata file
+1. `processed` which can contain the following
+    - `prh` pitch roll heading and depth sensor file processed to the whale frame
+    - `cal` cal file created during prh processing containing metadata
+    - a script detailing the prh creation process
+    - pseudo track
+    - RL (in the case of a CEE)
 
 ### notes {-}
 
+- There appear to be multiple errors in the `prh` files due to either tag errors, slides, or frame errors in processing. Use with caution for now. Several tags may have suffered catastrophic failurews
 - In Gm17_234a there appears to be a missing DTG #6. There is a #6 ```swv``` and ```xml``` in the unpacked directory but no ```dtg``` or ```wav```. Likely this is after recovery?
+- One of the boat_recordings is not a dtag but a record from a SNAP.

@@ -161,7 +161,7 @@
 <li class="chapter" data-level="4.5" data-path="dtags.html"><a href="dtags.html#calibration-files"><i class="fa fa-check"></i><b>4.5</b> Calibration files</a><ul>
 <li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-11"><i class="fa fa-check"></i>notes</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="dtags.html"><a href="dtags.html#raw-data-dtgs"><i class="fa fa-check"></i><b>4.6</b> Raw Data (DTGs)</a><ul>
+<li class="chapter" data-level="4.6" data-path="dtags.html"><a href="dtags.html#dtag_data"><i class="fa fa-check"></i><b>4.6</b> dtag_data</a><ul>
 <li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-12"><i class="fa fa-check"></i>notes</a></li>
 </ul></li>
 </ul></li>
@@ -186,8 +186,9 @@
 <h1><span class="header-section-number">4</span> DTAGs</h1>
 <div id="tag-metadata" class="section level2">
 <h2><span class="header-section-number">4.1</span> Tag Metadata</h2>
-<p>box link: <a href="https://duke.app.box.com/folder/124248258732" class="uri">https://duke.app.box.com/folder/124248258732</a>
-See section <a href="tagmeta.html#tagmeta">2</a> for details.</p>
+<p>The tag metadata will be integrated with sattag metadata eventually, but currently is temporarily housed at the following link: <a href="https://duke.app.box.com/folder/129673379781" class="uri">https://duke.app.box.com/folder/129673379781</a></p>
+<!--box link: https://duke.app.box.com/folder/124248258732
+See section \@ref(tagmeta) for details.-->
 </div>
 <div id="bench-testing" class="section level2">
 <h2><span class="header-section-number">4.2</span> Bench testing</h2>
@@ -268,7 +269,7 @@ See section <a href="tagmeta.html#tagmeta">2</a> for details.</p>
 <div id="pre-deploy-setup" class="section level2">
 <h2><span class="header-section-number">4.4</span> Pre-deploy setup</h2>
 <p>There are two main items in this directory:
-1. A prep worksheet based on the VA beach field effort courtsey of JS.
+1. A prep worksheet based on the VA beach field effort courtesy of JS.
 2. A summary of the D3host settings used prior to any DTAG deployment. Currently these are screenshots. These can be transcribed to a metadata sheet in the future, retaining the screenshot as an audit.</p>
 <div id="dtag3-pre-worksheet" class="section level3 unnumbered">
 <h3>DTAG3 pre worksheet</h3>
@@ -277,7 +278,7 @@ See section <a href="tagmeta.html#tagmeta">2</a> for details.</p>
 </div>
 <div id="calibration-files" class="section level2">
 <h2><span class="header-section-number">4.5</span> Calibration files</h2>
-<p>These are manufacter supplied calibration files neccessary for processing DTAG data. filenames tend to be in the format dx###.xml</p>
+<p>These are manufacter supplied calibration files neccessary for processing DTAG data. filenames tend to be in the format <code>dx###.xml</code>. Note that these are separate from the <code>cal</code> files which are created during the <code>prh</code> processing. These files can be found in <code>dtag_data</code> under the individual tags.</p>
 <div id="notes-11" class="section level3 unnumbered">
 <h3>notes</h3>
 <ul>
@@ -285,36 +286,41 @@ See section <a href="tagmeta.html#tagmeta">2</a> for details.</p>
 </ul>
 </div>
 </div>
-<div id="raw-data-dtgs" class="section level2">
-<h2><span class="header-section-number">4.6</span> Raw Data (DTGs)</h2>
-<p>There should be one directory per recovered DTAG. There are two types of directories here:</p>
+<div id="dtag_data" class="section level2">
+<h2><span class="header-section-number">4.6</span> dtag_data</h2>
+<p>There should be one directory per recovered DTAG. There are two types of directories here: (1) <code>boat_deployments</code> which were deployed near the surtface from a boat to record RLs during a CEE. Each directory represents a recording sequence and should be in the format <code>[YYYYMMDD]_CEE_[SOURCE PLATFORM]_RLs</code> and (2) <code>animal_deployments</code> which are standard dtag deployments on animals and should be in the format <code>[Sp][YY]_[JULIANDAY][a, b, c, ...]</code>.</p>
+<p>Within each directory there can be the following files and directories:</p>
 <ol style="list-style-type: decimal">
-<li>Deployed on animals and the directory name should be in the format [Sp][YY]_[JULIANDAY][a, b, c, …].</li>
-<li>Deployed from a boat to record RLs during a CEE and directory name should be in the format [YYYYMMDD]<em>CEE</em>[SOURCE PLATFORM]_RLs.</li>
+<li>Setup file descriptions or screenshot</li>
+<li>Post-deployment datasheet</li>
+<li>Offload audit (usually a screenshot)</li>
+<li><code>dtg</code> a directory containing the raw dtgs offloaded from the tag</li>
+<li><code>unpacked</code> a directory containing the unpacked dtgs which consist of one of the following for each dtg
+<ul>
+<li><code>*.svw</code> sensor data file</li>
+<li><code>*.wav</code> audio file</li>
+<li><code>*.xml</code> metadata file</li>
+</ul></li>
+<li><code>processed</code> which can contain the following
+<ul>
+<li><code>prh</code> pitch roll heading and depth sensor file processed to the whale frame</li>
+<li><code>cal</code> cal file created during prh processing containing metadata</li>
+<li>a script detailing the prh creation process</li>
+<li>pseudo track</li>
+<li>RL (in the case of a CEE)</li>
+</ul></li>
 </ol>
-<p>Within each directory should be the <code>\*.dtg</code> files as well as a directory <code>unpacked</code> including <code>\*.wav</code>, <code>\*.swv</code>, and <code>\*.xml</code> corresponding to each dtg.</p>
 <div id="notes-12" class="section level3 unnumbered">
 <h3>notes</h3>
 <ul>
+<li>There appear to be multiple errors in the <code>prh</code> files due to either tag errors, slides, or frame errors in processing. Use with caution for now. Several tags may have suffered catastrophic failurews</li>
 <li>In Gm17_234a there appears to be a missing DTG #6. There is a #6 <code>swv</code> and <code>xml</code> in the unpacked directory but no <code>dtg</code> or <code>wav</code>. Likely this is after recovery?</li>
+<li>One of the boat_recordings is not a dtag but a record from a SNAP.</li>
 </ul>
 
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
@@ -362,20 +368,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

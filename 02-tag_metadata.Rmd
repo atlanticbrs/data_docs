@@ -3,7 +3,7 @@ box link: https://duke.app.box.com/folder/124248258732
 
 ## tagdeploy_metadata.xls
 
-A basic metadata table for all tag deployments during BRS including both Wildlife Computers satellite tags as well as DTAGS. Sattags that were lost (misses) are not included in this metadata. Sattags that were deployed but were destroyed, damaged, or malfunctioned are still included in this metadata even though they may never have produced any data.
+A basic metadata table for all tag deployments during BRS including both Wildlife Computers satellite tags as well as DTAGS (**NOTE: NOTE YET IMPLEMENTED FOR DTAGS, DTAG METADATA CURRENT HOUSED HERE: https://duke.app.box.com/folder/129673379781**). Sattags that were lost (misses) are not included in this metadata. Sattags that were deployed but were destroyed, damaged, or malfunctioned are still included in this metadata even though they may never have produced any data.
 
 **rows:**
 
@@ -38,7 +38,7 @@ Each row is a single tag deployment event.
 
 ### notes {-}
 
-- DTAGS are not yet included in this sheet
+- DTAGS are not yet included in this sheet. See https://duke.app.box.com/folder/129673379781 for dtag metadata.
 - Permit information has not yet been added. 
 - Photo and Video links will probably be depreciated as these should be directly available elsewhere in the archive.
 - **catalog_ID_DUML** still needs to be updated to include most recent identifications

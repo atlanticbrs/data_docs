@@ -128,5 +128,13 @@ Within each directory there can be the following files and directories:
 ### notes {-}
 
 - There appear to be multiple errors in the `prh` files due to either tag errors, slides, or frame errors in processing. Use with caution for now. Several tags may have suffered catastrophic failurews
-- In Gm17_234a there appears to be a missing DTG #6. There is a #6 ```swv``` and ```xml``` in the unpacked directory but no ```dtg``` or ```wav```. Likely this is after recovery?
+- Gm17_234a there appears to be a missing DTG #6. There is a #6 ```swv``` and ```xml``` in the unpacked directory but no ```dtg``` or ```wav```. Likely this is after recovery?
 - One of the boat_recordings is not a dtag but a record from a SNAP.
+- gm18_159b appears to have a serious sensor failure
+- gm17_234a is not in the whale frame
+- gm18_157a is not in the whale frame
+- gm18_157b roll is off does not account for tag move in 2nd dive
+- gm18_239a pitch is off at the surface
+- zc17_234a, zc19_234a unknown status
+- zc20_231a catastrophic failure?
+- zc20_232a heading looks off

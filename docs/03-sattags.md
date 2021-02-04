@@ -433,6 +433,13 @@ These are the douglas filtered positions (see [douglas user manual](https://www.
 
 The file name should identicate whether the source of these data are the original SAS program or the new implementation in movebank. The [movebank](https://www.movebank.org/cms/movebank-main) algorithm *should* produce identical output to the original SAS program^[I am not sure this is strictly true but haven't been able to determine this with certainty). User defined settings shoudl be **maximum rate of movements = 15 kph,  maximum redudant distance = 3km, default rate coefficient for marine mammals = 25, location classes 2 and 3 retained.**
 
+#### notes {-}
+
+
+- GmTag223_DUML only has 1 non-filtered position from the Douglas filter. This is probably primarily because this deployment only produced 16 Argos positions.
+- ZcTag099_DUML and ZcTag102_DUML were unintentionally programmed for least-squares positions only and will have to be rerun for Kalman filtered positions by CLS/Argos.
+- **all least-squares tags still need to be rerun for Douglas filter with their new Kalman filtered positions.**
+
 ### gonio {-}
 
 These are decoded goniometer recieved messages in the same format as **portal** (see below for details). There is an example of how these data might be combined with the portal data [here](https://brsdataportalbeta.netlify.app/2021/01/14/intgon/) using [sattagutils](https://github.com/williamcioffi/sattagutils).

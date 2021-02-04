@@ -159,10 +159,10 @@
 <li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#dtag3-pre-worksheet"><i class="fa fa-check"></i>DTAG3 pre worksheet</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="dtags.html"><a href="dtags.html#calibration-files"><i class="fa fa-check"></i><b>4.5</b> Calibration files</a><ul>
-<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-11"><i class="fa fa-check"></i>notes</a></li>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-12"><i class="fa fa-check"></i>notes</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="dtags.html"><a href="dtags.html#dtag_data"><i class="fa fa-check"></i><b>4.6</b> dtag_data</a><ul>
-<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-12"><i class="fa fa-check"></i>notes</a></li>
+<li class="chapter" data-level="" data-path="dtags.html"><a href="dtags.html#notes-13"><i class="fa fa-check"></i>notes</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -676,6 +676,14 @@ $NPR,i,y,m,d,h,mi,s,id,fr,f,ai,l,log,lag,dg,le,da</p>
 <h3>douglas (argos-filter)</h3>
 <p>These are the douglas filtered positions (see <a href="https://www.usgs.gov/software/douglas-argos-filter-algorithm">douglas user manual</a>, <a href="https://www.movebank.org/cms/movebank-content/argos-data-filters">movebank user manual</a>, <a href="https://doi.org/10.1111/j.2041-210X.2012.00245.x">douglas filter manuscript</a>). If the directory name ends in <code>_leastsquares</code>, then these positions were filtered from the older leastsquares position estimation algorithm. See the <a href="https://www.argos-system.org/manual/">Argos manual</a> and this CLS <a href="https://www.argos-system.org/support-and-help/faq-kalman/">FAQ</a> for more details. If this is the case there should also be a <strong>kalman</strong> directory with newly estimated positions. These have not been run through the douglas alogirthm yet.</p>
 <p>The file name should identicate whether the source of these data are the original SAS program or the new implementation in movebank. The <a href="https://www.movebank.org/cms/movebank-main">movebank</a> algorithm <em>should</em> produce identical output to the original SAS program^[I am not sure this is strictly true but haven’t been able to determine this with certainty). User defined settings shoudl be <strong>maximum rate of movements = 15 kph, maximum redudant distance = 3km, default rate coefficient for marine mammals = 25, location classes 2 and 3 retained.</strong></p>
+<div id="notes-11" class="section level4 unnumbered">
+<h4>notes</h4>
+<ul>
+<li>GmTag223_DUML only has 1 non-filtered position from the Douglas filter. This is probably primarily because this deployment only produced 16 Argos positions.</li>
+<li>ZcTag099_DUML and ZcTag102_DUML were unintentionally programmed for least-squares positions only and will have to be rerun for Kalman filtered positions by CLS/Argos.</li>
+<li><strong>all least-squares tags still need to be rerun for Douglas filter with their new Kalman filtered positions.</strong></li>
+</ul>
+</div>
 </div>
 <div id="gonio-1" class="section level3 unnumbered">
 <h3>gonio</h3>

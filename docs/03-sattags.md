@@ -437,8 +437,22 @@ The file name should identicate whether the source of these data are the origina
 
 
 - GmTag223_DUML only has 1 non-filtered position from the Douglas filter. This is probably primarily because this deployment only produced 16 Argos positions.
-- ZcTag099_DUML and ZcTag102_DUML were unintentionally programmed for least-squares positions only and will have to be rerun for Kalman filtered positions by CLS/Argos.
 - **all least-squares tags still need to be rerun for Douglas filter with their new Kalman filtered positions.**
+
+### kalman {-}
+
+Prior to 2019 and on two tags in 2020, ZcTag099_DUML and ZcTag102_DUML, positions were initially calculated using the old least-squares algorithm. These positions have now been reprocessed using the new kalman algorithm, but the douglas filter has not yet been rerun. Each kalman directory consists of 6 files:
+
+- **\*.kmz**
+- **\*.kalman.csv** This appears to be the reprocessed positions. (semi-colon separated values)
+- **\*.leastsquares.csv** This appears to be the original positions calculated by least squares (semi-colon separated values)
+- **\*.smoothing.csv** (semi-colon separated values)
+- **[PTT]\*.stat.csv** This appears to be some statistics about the current PTT. (semi-colon separated values)
+- **\*.stat.csv** This appears to be some statistics about the current batch of tags being reprocessed. (tab separated values)
+
+#### notes {-}
+
+Although these files are labeled as `\*.csv` they appear to be mostly semi-colon separated values. The reprocessing batch statistics appear to be tab separated, although they may lake a delimiter in some cases. We are still waiting for detailed data descriptions for these files. A simple R script for converting \*.kalman.csv into a similar format as we download from the wildlife computers portal is available at https://github.com/atlanticbrs/CLS_kalman_datawrangling.
 
 ### gonio {-}
 

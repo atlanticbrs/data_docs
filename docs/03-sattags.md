@@ -441,7 +441,7 @@ The file name should identicate whether the source of these data are the origina
 
 ### kalman {-}
 
-Prior to 2019 and on two tags in 2020, ZcTag099_DUML and ZcTag102_DUML, positions were initially calculated using the old least-squares algorithm. These positions have now been reprocessed using the new kalman algorithm, but the douglas filter has not yet been rerun. Each kalman directory consists of 6 files:
+Prior to 2019 and on two tags in 2020, ZcTag099_DUML and ZcTag102_DUML, positions were initially calculated using the old least-squares algorithm. There are some [file descriptions](https://duke.box.com/s/t8hj211uuhosqkjywpq0izleje60viu5) in the manuals directory. Field names are different from data downloaded from the wildlife computers portal but are largely self explanatory. Longitude and latitude are expressed on [0, 360] instead of [-180, 180], however (see below). These positions have now been reprocessed using the new kalman algorithm, but the douglas filter has not yet been rerun. Each kalman directory consists of 6 files:
 
 - **\*.kmz**
 - **\*.kalman.csv** This appears to be the reprocessed positions. (semi-colon separated values)
@@ -450,9 +450,20 @@ Prior to 2019 and on two tags in 2020, ZcTag099_DUML and ZcTag102_DUML, position
 - **[PTT]\*.stat.csv** This appears to be some statistics about the current PTT. (semi-colon separated values)
 - **\*.stat.csv** This appears to be some statistics about the current batch of tags being reprocessed. (tab separated values)
 
+
+The longitdue and latitude which are on [0, 360] can be converted to [-180, 180] using the following formula:
+
+\begin{equation}
+\left(\left(x\ +\ 180\right)\ mod\ 360\right)\ -\ 180
+\end{equation}
+
+where $x$ is the input on [0, 360].
+
+A simple R script for converting \*.kalman.csv into a similar format as we download from the wildlife computers portal is available at https://github.com/atlanticbrs/CLS_kalman_datawrangling.
+
 #### notes {-}
 
-Although these files are labeled as `\*.csv` they appear to be mostly semi-colon separated values. The reprocessing batch statistics appear to be tab separated, although they may lake a delimiter in some cases. We are still waiting for detailed data descriptions for these files. A simple R script for converting \*.kalman.csv into a similar format as we download from the wildlife computers portal is available at https://github.com/atlanticbrs/CLS_kalman_datawrangling.
+- Although these files are labeled as `\*.csv` they appear to be mostly semi-colon separated values. The reprocessing batch statistics appear to be tab separated, although they may lake a delimiter in some cases. 
 
 ### gonio {-}
 
